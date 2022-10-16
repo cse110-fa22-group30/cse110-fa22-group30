@@ -1,4 +1,4 @@
-# Kickoff!!!!!
+# 10/12/22 - Kickoff!!!!!
 - Took group picture
 - Reintroductions
 - Discussed stuff due Sunday 10/16
