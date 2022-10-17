@@ -30,5 +30,5 @@ adaptable to any situation life throws at us.
 - [Timothy Wu](github.com/Tim-404) - Member
   > 3rd year math-cs major. "I like playing tennis and guitar. I prefer  backend stuff..."
 - [Xiaofan Mu](https://github.com/mu-xiaofan) - Member
-  >
+  > 4th year computer science major. "I like gaming and music."
 - [Gagan Gopalaiah](https://github.com/ggopalai) - Team TA
