@@ -1,6 +1,6 @@
 # **RESTful Raccoons**
 
-<img alt="Brand Logo" src="brand-logo.png" width=225px>
+<img alt="Brand Logo" src="branding/brand-logo.png" width=225px>
 
 <hr>
 
