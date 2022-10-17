@@ -2,6 +2,7 @@
 
 <img alt="Brand Logo" src="branding/logo.png" width=225px>
 
+
 <hr>
 
 ## Who are we?
@@ -26,9 +27,9 @@ adaptable to any situation life throws at us.
 - [Regan Yang](https://github.com/SideCoin) - Member
   > 3rd year Cogs-ML major who enjoys running it down in video games. 
 - [Rudy Orahin](https://github.com/rorahin) - Co-Lead
-  > 4th-year computer science major. "I like playing chess, and my favorite part of the day is trying out different types of cuisine and dishes, I am obsessed with chess."
+  > 4th-year computer science major. "I like playing chess, and my favorite part of the day is trying out different types of cuisine and dishes, I am obsessed with chees."
 - [Timothy Wu](github.com/Tim-404) - Member
   > 3rd year math-cs major. "I like playing tennis and guitar. I prefer  backend stuff..."
 - [Xiaofan Mu](https://github.com/mu-xiaofan) - Member
-  > 4th year computer science major. "I like gaming and music."
+  >
 - [Gagan Gopalaiah](https://github.com/ggopalai) - Team TA
