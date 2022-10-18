@@ -1,7 +1,7 @@
 # 10/12/22 - Weekly Team Meeting with the TA!!!!!
 
 ## Time and location
-- at 11:30 Tuesday Oct 18th, 2022
+- at 11:30 am Tuesday Oct 18th, 2022
 - on Zoom meeting
 
 ##   Attendees:
