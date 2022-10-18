@@ -38,7 +38,7 @@
 
 ## Question/Answer
 - Advice on the project idea? what should be focused on?
-  - focus on idea and User experince and the other way arround
+  - focus on idea and User experince, not the other way arround
   - remember the constraints 
     - CRUD
     - Tools & Features: will be discused fourther in the upcoming weeks
