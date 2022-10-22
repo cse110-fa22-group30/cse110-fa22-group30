@@ -8,7 +8,7 @@
 
 ### Session 2
 - 6:00 PM Friday October 21, 2022
-- Attendees:
+- Attendees: John, Alex, Regan, Rudy, Owen
 
 # Discussion Details
 
