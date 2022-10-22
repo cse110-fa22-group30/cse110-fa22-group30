@@ -1,7 +1,10 @@
 # 10/19/22 - Brainstorming
 
+## Initial meeting
+
 ## Time and location
 - 6:00 PM Wednesday October 19, 2022
+- until 7:00 PM, one hour long
 - CSE Building B275
 
 ## Attendees
