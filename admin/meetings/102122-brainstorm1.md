@@ -14,6 +14,7 @@
 
 ## Ideas
 - scheduling app
+  - book available time slot within a week!
   - greedy stays ahead algorithm
   - multiple categories, too complicated
   - just show time availabilities
@@ -21,8 +22,19 @@
   - see Aleksa diagrams
   - have a login system? or just let everyone access/change everything
 - journaling app
+  - add, edit, ... articles
   - everyone has access to it
   - similar to Wikipedia
   - see Aleksa diagrams
   - text areas categorized by genre/topic/logo/whatever
   - how to simplify if it's too complicated?
+- fitness app
+  - design fitness custom program
+- to-do list app
+  - simple to-do list, planner and reminders
+- bank expense tracking app
+  - budget and expenses, tracking and planning
+- flash cards app
+  - simple slash card game
+- guess game app
+  - ?
