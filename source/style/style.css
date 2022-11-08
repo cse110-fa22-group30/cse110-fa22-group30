@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "Iner";
+  src: url("../font/Inter-Regular.woff2");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Iner";
+  src: url("../font/Inter-bold.woff2");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Iner";
+  src: url("../font/Inter-SemiBold.woff2");
+  font-weight: semiBold;
+}
+
+* {
+  font-family: Iner;
+}
+
+header h1 {
+  text-align: center;
+}
+
+#mainContainer {
+    width: 90vw;
+    margin: auto;
+}
