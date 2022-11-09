@@ -24,3 +24,9 @@ header h1 {
     width: 90vw;
     margin: auto;
 }
+
+* :disabled, input[disabled]{
+  border: 0px !important;
+  background-color: transparent;
+  color: black;
+}
