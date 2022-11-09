@@ -1,32 +1,32 @@
-
 @font-face {
-  font-family: "Iner";
-  src: url("../font/Inter-bold.woff2");
-  font-weight: bold;
+   font-family: 'Iner';
+   src: url('../font/Inter-bold.woff2');
+   font-weight: bold;
 }
 
 @font-face {
-  font-family: "Iner";
-  src: url("../font/Inter-Regular.woff2");
-  font-weight: normal;
+   font-family: 'Iner';
+   src: url('../font/Inter-Regular.woff2');
+   font-weight: normal;
 }
 
 * {
-  font-family: Iner;
-  font-weight: normal;
+   font-family: Iner;
+   font-weight: normal;
 }
 
 header h1 {
-  text-align: center;
+   text-align: center;
 }
 
 #mainContainer {
-    width: 90vw;
-    margin: auto;
+   width: 90vw;
+   margin: auto;
 }
 
-* :disabled, input[disabled]{
-  border: 0px !important;
-  background-color: transparent;
-  color: black;
+* :disabled,
+input[disabled] {
+   border: 0px !important;
+   background-color: transparent;
+   color: black;
 }
