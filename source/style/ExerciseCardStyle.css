@@ -1,0 +1,23 @@
+.mainContainer {
+  background-color: #53cbfb;
+  border-radius: 10px;
+}
+
+.exerciseHeader {
+  width: 100%;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 5px 0 5px 0;
+}
+
+.exerciseContent {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  padding: 5px 10px 5px 10px;
+}
+
+.exerciseContent > * {
+  flex: 1;
+}
