@@ -27,6 +27,7 @@ class ExerciseCard extends HTMLElement {
     }
 
     activateEditFunction(
+        data,
         header,
         content,
         editButton,
@@ -229,6 +230,7 @@ class ExerciseCard extends HTMLElement {
         content.appendChild(buttonDiv);
 
         this.activateEditFunction(
+            data,
             header,
             content,
             editButton,
