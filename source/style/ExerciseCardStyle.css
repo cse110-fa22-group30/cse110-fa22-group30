@@ -1,6 +1,7 @@
 .mainContainer {
    background-color: #53cbfb;
    border-radius: 10px;
+   margin-bottom: 5px;
 }
 
 .exerciseHeader {

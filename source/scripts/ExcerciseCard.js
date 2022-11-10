@@ -26,6 +26,101 @@ class ExerciseCard extends HTMLElement {
       shadow.appendChild(linkElem);
    }
 
+   activateEditFunction(header, content, editButton, submitButton, cancelButton) {
+      // edit button event listener
+      editButton.addEventListener('click', function () {
+         let toShow = content.getElementsByClassName('schedule-edit');
+         let toShow2 = header.getElementsByClassName('schedule-edit');
+         let toHide = content.getElementsByClassName('schedule-show');
+         let toHide2 = header.getElementsByClassName('schedule-show');
+         for (var i = 0; i < toShow.length; i++) {
+            toShow[i].style.display = 'inline-block';
+         }
+         for (var i = 0; i < toShow2.length; i++) {
+            toShow2[i].style.display = 'inline-block';
+         }
+         for (var i = 0; i < toHide.length; i++) {
+            toHide[i].style.display = 'none';
+         }
+         for (var i = 0; i < toHide2.length; i++) {
+            toHide2[i].style.display = 'none';
+         }
+      });
+
+      // submit button event listener
+      submitButton.addEventListener('click', function () {
+         //TODO                                        ----------------------------------------------------------- TODO
+         //save to local storage
+
+         data = {
+            duration: content.getElementsByClassName('duration-input')[0].value,
+            calories: content.getElementsByClassName('calories-input')[0].value,
+            stat1: content.getElementsByClassName('stat1-input')[0].value,
+            stat2: content.getElementsByClassName('stat2-input')[0].value,
+            notes: content.getElementsByClassName('notes-input')[0].value,
+            type: header.getElementsByClassName('type-input')[0].value,
+            date: header.getElementsByClassName('date-input')[0].value,
+         };
+
+         content.getElementsByClassName('duration-show')[0].innerText =
+            data.duration;
+         content.getElementsByClassName('calories-show')[0].innerText =
+            data.calories;
+         content.getElementsByClassName('stat1-show')[0].innerText = data.stat1;
+         content.getElementsByClassName('stat2-show')[0].innerText = data.stat2;
+         content.getElementsByClassName('notes-show')[0].innerText = data.notes;
+         header.getElementsByClassName('type-show')[0].innerText = data.type;
+         header.getElementsByClassName('date-show')[0].innerText = data.date;
+
+         let toShow = content.getElementsByClassName('schedule-show');
+         let toShow2 = header.getElementsByClassName('schedule-show');
+         let toHide = content.getElementsByClassName('schedule-edit');
+         let toHide2 = header.getElementsByClassName('schedule-edit');
+         for (var i = 0; i < toShow.length; i++) {
+            toShow[i].style.display = 'inline-block';
+         }
+         for (var i = 0; i < toShow2.length; i++) {
+            toShow2[i].style.display = 'inline-block';
+         }
+         for (var i = 0; i < toHide.length; i++) {
+            toHide[i].style.display = 'none';
+         }
+         for (var i = 0; i < toHide2.length; i++) {
+            toHide2[i].style.display = 'none';
+         }
+      });
+
+      // cancel button event listener
+      cancelButton.addEventListener('click', function () {
+         content.getElementsByClassName('duration-input')[0].value =
+            data.duration;
+         content.getElementsByClassName('calories-input')[0].value =
+            data.calories;
+         content.getElementsByClassName('stat1-input')[0].value = data.stat1;
+         content.getElementsByClassName('stat2-input')[0].value = data.stat2;
+         content.getElementsByClassName('notes-input')[0].value = data.notes;
+         header.getElementsByClassName('type-input')[0].value = data.type;
+         header.getElementsByClassName('date-input')[0].value = data.date;
+
+         let toShow = content.getElementsByClassName('schedule-show');
+         let toShow2 = header.getElementsByClassName('schedule-show');
+         let toHide = content.getElementsByClassName('schedule-edit');
+         let toHide2 = header.getElementsByClassName('schedule-edit');
+         for (var i = 0; i < toShow.length; i++) {
+            toShow[i].style.display = 'inline-block';
+         }
+         for (var i = 0; i < toShow2.length; i++) {
+            toShow2[i].style.display = 'inline-block';
+         }
+         for (var i = 0; i < toHide.length; i++) {
+            toHide[i].style.display = 'none';
+         }
+         for (var i = 0; i < toHide2.length; i++) {
+            toHide2[i].style.display = 'none';
+         }
+      });
+   }
+
    /**
     * @param {Object} data
     *
@@ -71,24 +166,25 @@ class ExerciseCard extends HTMLElement {
       let editButton = document.createElement('button');
       editButton.innerText = 'Edit';
       editButton.classList.add('schedule-show');
-      editButton.addEventListener('click', function () {
-         let toShow = content.getElementsByClassName('schedule-edit');
-         let toShow2 = header.getElementsByClassName('schedule-edit');
-         let toHide = content.getElementsByClassName('schedule-show');
-         let toHide2 = header.getElementsByClassName('schedule-show');
-         for (var i = 0; i < toShow.length; i++) {
-            toShow[i].style.display = 'inline-block';
-         }
-         for (var i = 0; i < toShow2.length; i++) {
-            toShow2[i].style.display = 'inline-block';
-         }  
-         for (var i = 0; i < toHide.length; i++) {
-            toHide[i].style.display = 'none';
-         }
-         for (var i = 0; i < toHide2.length; i++) {
-            toHide2[i].style.display = 'none';
-         }
-      });
+      // editButton.addEventListener('click', function () {
+      //    let toShow = content.getElementsByClassName('schedule-edit');
+      //    let toShow2 = header.getElementsByClassName('schedule-edit');
+      //    let toHide = content.getElementsByClassName('schedule-show');
+      //    let toHide2 = header.getElementsByClassName('schedule-show');
+      //    for (var i = 0; i < toShow.length; i++) {
+      //       toShow[i].style.display = 'inline-block';
+      //    }
+      //    for (var i = 0; i < toShow2.length; i++) {
+      //       toShow2[i].style.display = 'inline-block';
+      //    }
+      //    for (var i = 0; i < toHide.length; i++) {
+      //       toHide[i].style.display = 'none';
+      //    }
+      //    for (var i = 0; i < toHide2.length; i++) {
+      //       toHide2[i].style.display = 'none';
+      //    }
+      // });
+
       header.appendChild(editButton);
 
       content.innerHTML =
@@ -129,85 +225,89 @@ class ExerciseCard extends HTMLElement {
       submitButton.innerText = 'Submit';
       submitButton.classList.add('schedule-edit');
       submitButton.style.display = 'none';
-      let dataRef = this.data;
-      submitButton.addEventListener('click', function () {
-         //TODO                                        ----------------------------------------------------------- TODO
-         //save to local storage
+      // submitButton.addEventListener('click', function () {
+      //    //TODO                                        ----------------------------------------------------------- TODO
+      //    //save to local storage
 
-         data = {
-            duration: content.getElementsByClassName('duration-input')[0].value,
-            calories: content.getElementsByClassName('calories-input')[0].value,
-            stat1: content.getElementsByClassName('stat1-input')[0].value,
-            stat2: content.getElementsByClassName('stat2-input')[0].value,
-            notes: content.getElementsByClassName('notes-input')[0].value,
-            type: header.getElementsByClassName('type-input')[0].value,
-            date: header.getElementsByClassName('date-input')[0].value,
-         };
+      //    data = {
+      //       duration: content.getElementsByClassName('duration-input')[0].value,
+      //       calories: content.getElementsByClassName('calories-input')[0].value,
+      //       stat1: content.getElementsByClassName('stat1-input')[0].value,
+      //       stat2: content.getElementsByClassName('stat2-input')[0].value,
+      //       notes: content.getElementsByClassName('notes-input')[0].value,
+      //       type: header.getElementsByClassName('type-input')[0].value,
+      //       date: header.getElementsByClassName('date-input')[0].value,
+      //    };
 
-         content.getElementsByClassName('duration-show')[0].innerText =
-            data.duration;
-         content.getElementsByClassName('calories-show')[0].innerText =
-            data.calories;
-         content.getElementsByClassName('stat1-show')[0].innerText = data.stat1;
-         content.getElementsByClassName('stat2-show')[0].innerText = data.stat2;
-         content.getElementsByClassName('notes-show')[0].innerText = data.notes;
-         header.getElementsByClassName('type-show')[0].innerText = data.type;
-         header.getElementsByClassName('date-show')[0].innerText = data.date;
+      //    content.getElementsByClassName('duration-show')[0].innerText =
+      //       data.duration;
+      //    content.getElementsByClassName('calories-show')[0].innerText =
+      //       data.calories;
+      //    content.getElementsByClassName('stat1-show')[0].innerText = data.stat1;
+      //    content.getElementsByClassName('stat2-show')[0].innerText = data.stat2;
+      //    content.getElementsByClassName('notes-show')[0].innerText = data.notes;
+      //    header.getElementsByClassName('type-show')[0].innerText = data.type;
+      //    header.getElementsByClassName('date-show')[0].innerText = data.date;
 
-         let toShow = content.getElementsByClassName('schedule-show');
-         let toShow2 = header.getElementsByClassName('schedule-show');
-         let toHide = content.getElementsByClassName('schedule-edit');
-         let toHide2 = header.getElementsByClassName('schedule-edit');
-         for (var i = 0; i < toShow.length; i++) {
-            toShow[i].style.display = 'inline-block';
-         }
-         for (var i = 0; i < toShow2.length; i++) {
-            toShow2[i].style.display = 'inline-block';
-         }
-         for (var i = 0; i < toHide.length; i++) {
-            toHide[i].style.display = 'none';
-         }
-         for (var i = 0; i < toHide2.length; i++) {
-            toHide2[i].style.display = 'none';
-         }
-      });
+      //    let toShow = content.getElementsByClassName('schedule-show');
+      //    let toShow2 = header.getElementsByClassName('schedule-show');
+      //    let toHide = content.getElementsByClassName('schedule-edit');
+      //    let toHide2 = header.getElementsByClassName('schedule-edit');
+      //    for (var i = 0; i < toShow.length; i++) {
+      //       toShow[i].style.display = 'inline-block';
+      //    }
+      //    for (var i = 0; i < toShow2.length; i++) {
+      //       toShow2[i].style.display = 'inline-block';
+      //    }
+      //    for (var i = 0; i < toHide.length; i++) {
+      //       toHide[i].style.display = 'none';
+      //    }
+      //    for (var i = 0; i < toHide2.length; i++) {
+      //       toHide2[i].style.display = 'none';
+      //    }
+      // });
+
       let cancelButton = document.createElement('button');
       cancelButton.innerText = 'Cancel';
       cancelButton.classList.add('schedule-edit');
       cancelButton.style.display = 'none';
-      cancelButton.addEventListener('click', function () {
-         content.getElementsByClassName('duration-input')[0].value =
-            data.duration;
-         content.getElementsByClassName('calories-input')[0].value =
-            data.calories;
-         content.getElementsByClassName('stat1-input')[0].value = data.stat1;
-         content.getElementsByClassName('stat2-input')[0].value = data.stat2;
-         content.getElementsByClassName('notes-input')[0].value = data.notes;
-         header.getElementsByClassName('type-input')[0].value = data.type;
-         header.getElementsByClassName('date-input')[0].value = data.date;
+      // cancelButton.addEventListener('click', function () {
+      //    content.getElementsByClassName('duration-input')[0].value =
+      //       data.duration;
+      //    content.getElementsByClassName('calories-input')[0].value =
+      //       data.calories;
+      //    content.getElementsByClassName('stat1-input')[0].value = data.stat1;
+      //    content.getElementsByClassName('stat2-input')[0].value = data.stat2;
+      //    content.getElementsByClassName('notes-input')[0].value = data.notes;
+      //    header.getElementsByClassName('type-input')[0].value = data.type;
+      //    header.getElementsByClassName('date-input')[0].value = data.date;
 
-         let toShow = content.getElementsByClassName('schedule-show');
-         let toShow2 = header.getElementsByClassName('schedule-show');
-         let toHide = content.getElementsByClassName('schedule-edit');
-         let toHide2 = header.getElementsByClassName('schedule-edit');
-         for (var i = 0; i < toShow.length; i++) {
-            toShow[i].style.display = 'inline-block';
-         }
-         for (var i = 0; i < toShow2.length; i++) {
-            toShow2[i].style.display = 'inline-block';
-         }
-         for (var i = 0; i < toHide.length; i++) {
-            toHide[i].style.display = 'none';
-         }
-         for (var i = 0; i < toHide2.length; i++) {
-            toHide2[i].style.display = 'none';
-         }
-      });
+      //    let toShow = content.getElementsByClassName('schedule-show');
+      //    let toShow2 = header.getElementsByClassName('schedule-show');
+      //    let toHide = content.getElementsByClassName('schedule-edit');
+      //    let toHide2 = header.getElementsByClassName('schedule-edit');
+      //    for (var i = 0; i < toShow.length; i++) {
+      //       toShow[i].style.display = 'inline-block';
+      //    }
+      //    for (var i = 0; i < toShow2.length; i++) {
+      //       toShow2[i].style.display = 'inline-block';
+      //    }
+      //    for (var i = 0; i < toHide.length; i++) {
+      //       toHide[i].style.display = 'none';
+      //    }
+      //    for (var i = 0; i < toHide2.length; i++) {
+      //       toHide2[i].style.display = 'none';
+      //    }
+      // });
       let buttonDiv = document.createElement('div');
       buttonDiv.appendChild(submitButton);
       buttonDiv.appendChild(cancelButton);
       content.appendChild(buttonDiv);
+
+      this.activateEditFunction(header, content, editButton, submitButton, cancelButton);
    }
+
+  
 }
 
 customElements.define('exercise-card', ExerciseCard);
