@@ -1,5 +1,4 @@
 name: Initial CI / Unit test for Fitness App
-​
 on:
   push:
     branches: [ master, dev ]
