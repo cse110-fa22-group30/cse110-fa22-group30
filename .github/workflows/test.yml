@@ -1,45 +1,20 @@
-name: Initial CI / Unit test for Fitness App
-​
-on:
+name: CI initial Fitness App
+on: 
   push:
-    branches: [ master, dev ]
-  pull_request:
-    branches: [ master, dev ]
-​
-jobs:
-  Jest:
-    runs-on: ubuntu-latest
-​
-    strategy:
-      matrix:
-        node-version: [18.x, 16.x, 17.x]
-   
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-​
-    - name: Test using Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: [18.x, 16.x, 17.x]
-​
-    - name: Install packages and dependencies
-      run: |
-      npm ci
-      npm install
-​
-    - name: Run lint
-      run: npm lint
-​
-    - name: Test
-      run: npm test
-      # run: npm jest --ci
-​
-      # uses: actions/setup-node@v1
-      # with:
-      #   node-version: ${{ matrix.node-version }}
-    # - name: npm install
-    #   run: npm ci
-​
-    # - name: tests
-    #   run: npm test
+    branches:
+      - main
+      - dev
+  pull:
+    branches:
+      - main
+      - dev
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v3
+      - name: Install modules
+        run: yarn
+    - name: Run ESLint
+        run: eslint . --ext .js,.jsx,.ts,.tsx
+
