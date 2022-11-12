@@ -11,9 +11,9 @@ name: Lint Code Base
 #############################
 on:
   push:
-    branches: [main, dev]
+    branches: [main, dev, 9-cicd-pipeline]
   pull_request:
-    branches: [main, dev]
+    branches: [main, dev, 9-cicd-pipeline]
 
 ###############
 # Set the Job #
