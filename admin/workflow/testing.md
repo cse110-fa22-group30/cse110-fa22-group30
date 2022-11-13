@@ -1,10 +1,6 @@
 # Testing process
 ## Creating tests
-For each script `<filename>.js`, we will create a test file `<filename>.test.js`. On a PR, all test suites will be run through 
-
-```bash
-npm run coverage
-```
+For each script `<filename>.js`, we will create a test file `<filename>.test.js` in the `tests/` directory. 
 
 ## Running tests
 Tests are run with NodeJS. Test a single file locally with
@@ -21,7 +17,7 @@ If you want code coverage included, run
 npm test -- <pattern> --coverage
 ```
 
-You can run *all* tests locally, with coverage with the following:
+You can run *all* tests locally, with coverage, with the following:
 
 ```bash
 npm run test
