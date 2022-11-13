@@ -1,0 +1,15 @@
+PASS tests/subtraction.test.js
+PASS tests/sum.test.js
+----------------|---------|----------|---------|---------|-------------------
+File            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------------|---------|----------|---------|---------|-------------------
+All files       |     100 |      100 |     100 |     100 |                   
+ subtraction.js |     100 |      100 |     100 |     100 |                   
+ sum.js         |     100 |      100 |     100 |     100 |                   
+----------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 2 passed, 2 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        2.756 s
+Ran all test suites.
