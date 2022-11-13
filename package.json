@@ -4,6 +4,8 @@
   },
   "scripts": {
     "test": "jest",
-    "coverage": "jest --collectCoverage --"
+    "coverage": "jest --collectCoverage --",
+    "ci-test": "jest --ci --verbose > test-results/test 2>&1",
+    "ci-coverage": "jest --ci --collectCoverage -- > test-results/coverage 2>&1"
   }
 }
