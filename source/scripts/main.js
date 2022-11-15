@@ -1,11 +1,15 @@
+// Wait for window to load
 window.addEventListener("DOMContentLoaded", init);
 
+// Initialization function
 function init() {
 
+  // Populate page with 2 exercise cards
   const main = document.getElementById("scheduledContainer");
   const exercise = document.createElement("exercise-card");
   const exercise2 = document.createElement("exercise-card");
   
+  // set exercise data
   exercise.data = { 
     completed: "true",
     type: "running",    //must be lower case, match case, or implement .tolowercase()
@@ -28,8 +32,7 @@ function init() {
     notes: "notes of a graphagra, lionger so it makes sense as a note"
   };
 
+  // Append to page
   main.appendChild(exercise);
   main.appendChild(exercise2);
 }
-
-
