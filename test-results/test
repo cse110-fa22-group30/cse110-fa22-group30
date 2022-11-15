@@ -1,0 +1,11 @@
+PASS tests/subtraction.test.js
+  √ subtracts 4 - 2 to equal 2 (3 ms)
+
+PASS tests/sum.test.js
+  √ adds 1 + 2 to equal 3 (3 ms)
+
+Test Suites: 2 passed, 2 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        2.806 s, estimated 3 s
+Ran all test suites.
