@@ -3,7 +3,9 @@
     "jest": "^29.3.1"
   },
   "scripts": {
-    "test": "jest",
-    "coverage": "jest --collectCoverage --"
+    "test": "jest --verbose",
+    "coverage": "jest --collectCoverage --",
+    "ci-test": "jest --ci --verbose > test-results/test 2>&1",
+    "ci-coverage": "jest --ci --collectCoverage -- > test-results/coverage 2>&1"
   }
 }
