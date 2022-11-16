@@ -1,0 +1,26 @@
+name: Jest Testing and Code Coverage
+
+on:
+  push:
+  pull_request:
+
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Unit test
+        run: npm run ci-test
+
+  coverage:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Code coverage
+      - run: npm run ci-coverage
