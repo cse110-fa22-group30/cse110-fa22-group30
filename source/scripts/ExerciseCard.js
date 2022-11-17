@@ -45,6 +45,19 @@ class ExerciseCard extends HTMLElement {
         submitButton,
         cancelButton
     ) {
+        // header expand and collapse event listener, on click
+        const collapseButton = header.querySelector('.collapseButton')
+        // console.log('collapseButton', collapseButton)
+        collapseButton.addEventListener('click', function () {
+            if (content.style.display === 'flex') {
+                content.style.display = 'none';
+                collapseButton.textContent = 'Expand'
+            } else {
+                content.style.display = 'flex';
+                collapseButton.textContent = 'Collapse'
+            }
+        });
+
         // edit button event listener, change document ui on click
         editButton.addEventListener('click', function () {
             let toShow = content.getElementsByClassName('schedule-edit');
@@ -67,9 +80,9 @@ class ExerciseCard extends HTMLElement {
 
         // submit button event listener, save to local storage on click
         submitButton.addEventListener('click', function () {
-            //TODO                                        ----------------------------------------------------------- TODO
+            //TODO
             //save to local storage
-            
+
             // scraping information off the document on submittal
             data = {
                 duration:
@@ -148,7 +161,7 @@ class ExerciseCard extends HTMLElement {
     /**
      * @param {Object} data
      * Setter function for exercise-data element
-     * 
+     *
      *  data = {
      *   completed: "boolean",
      *   type: "string",
@@ -164,12 +177,9 @@ class ExerciseCard extends HTMLElement {
         // Returns if data is a falsy value
         if (!data) return;
 
-        console.log(data);
-
         // set inner html for initial state (not edit) of the element
         let header = this.shadowRoot.querySelector('.exerciseHeader');
         let content = this.shadowRoot.querySelector('.exerciseContent');
-        console.log('header', header);
         header.innerHTML =
             `
         <input type="checkbox" class="completedBox" ` +
@@ -177,23 +187,21 @@ class ExerciseCard extends HTMLElement {
             `>
         <span class="schedule-show exerciseName type-show">` +
             data.type +
-            `</span> <select style="display: none" class="schedule-edit type-input" value="` +
+            `</span> 
+        <select style="display: none" class="schedule-edit type-input" value="` +
             data.type +
             `">
-        <option value="running">running</option>
-        <option value="running">running</option>
+            <option value="running">running</option>
+            <option value="running">cycling</option>
         </select>
         <span class="schedule-show exerciseDate date-show">` +
             data.date +
             `</span> <input style="display: none" class="schedule-edit date-input" type="date" value="` +
             data.date +
-            `"/>
-    `;
-        let editButton = document.createElement('button');
-        editButton.innerText = 'Edit';
-        editButton.classList.add('schedule-show');
+        `"/>
+        <button class='collapseButton'>Expand</button>
+    `;        
 
-        header.appendChild(editButton);
         content.innerHTML =
             `
         <div class="stats">
@@ -227,6 +235,11 @@ class ExerciseCard extends HTMLElement {
             ` </textarea>
         </div>
     `;
+        let editButton = document.createElement('button');
+        editButton.innerText = 'Edit';
+        editButton.classList.add('schedule-show');
+
+        content.appendChild(editButton);
 
         let submitButton = document.createElement('button');
         submitButton.innerText = 'Submit';
