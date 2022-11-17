@@ -29,10 +29,10 @@ Chosen option: App
 ## Pros and Cons of the Options <!-- optional -->
 ### App
 ​
-* Good, 
+* Good, it is easy for the user to grab and use
 ​
 ### Website
 ​
-* Good, 
+* Bad, the user may need to take time to find the path
 
 <!-- markdownlint-disable-file MD013 -->
