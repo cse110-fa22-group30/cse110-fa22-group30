@@ -1,7 +1,7 @@
 # Decision on local storage
 ​
 * Status: Accepted
-* Deciders: John and Xiaofan <!-- optional -->
+* Deciders: John Liu and Xiaofan Mu <!-- optional -->
 * Date: 2022-11-09 <!-- optional -->
 ​
 ## Context and Problem Statement
