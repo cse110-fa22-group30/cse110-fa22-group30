@@ -12,16 +12,17 @@ What implementation of CRUD is optimal for our application
 ​
 * Easy to implement so that people can quickly set up
 * Easy to debug
-* Ease of use
+* Easy to use
 ​
 ## Considered Options
 ​
 * Saving information to a local file
 * Local Storage
+* json
 ​
 ## Decision Outcome
 ​
-Chosen option: We're using local storage mainly because of it is simpler and easier to use. 
+Chosen option: After meeting with TA, we made the decision. We're using local storage mainly because it is simpler and easier to use. 
 
 ## Pros and Cons of the Options <!-- optional -->
 ### Local File
