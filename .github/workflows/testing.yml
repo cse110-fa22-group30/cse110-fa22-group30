@@ -8,7 +8,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  jest-test:
+  test:
+    name: Jest Test
     runs-on: ubuntu-latest
 
     steps:
@@ -23,6 +24,20 @@ jobs:
 
       - name: Unit test
         run: npm run ci-test
+  
+  coverage:
+    name: Code Coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - run: npm ci
 
       - name: Code coverage
         run: npm run ci-coverage
