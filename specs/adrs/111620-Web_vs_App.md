@@ -1,4 +1,4 @@
-# Decision on local storage
+# Decision on App
 ​
 * Status: Accepted
 * Deciders: John and Xiaofan <!-- optional -->
@@ -23,11 +23,11 @@ Whether to use website or App for presenting our work.
 Chosen option: 
 
 ## Pros and Cons of the Options <!-- optional -->
-### Local File
+### App
 ​
 * Good, 
 ​
-### Local Storage
+### Website
 ​
 * Good, 
 
