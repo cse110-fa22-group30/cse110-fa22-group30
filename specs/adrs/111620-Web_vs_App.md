@@ -6,12 +6,16 @@
 ​
 ## Context and Problem Statement
 ​
-Whether to use website or App for presenting our work.
+Whether to use website or App to present our work.
 ​
 ## Decision Drivers <!-- optional -->
 ​
 * Easy to implement
 * Morepowerful usage 
+* user's expierence
+* efficency of the usage
+* More possibility of using it under any condition
+* 
 ​
 ## Considered Options
 ​
