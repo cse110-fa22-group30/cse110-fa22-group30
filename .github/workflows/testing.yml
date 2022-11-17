@@ -28,6 +28,7 @@ jobs:
         uses: actions-js/push@v1.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
           message: Writing test results
   
   coverage:
@@ -51,4 +52,5 @@ jobs:
         uses: actions-js/push@v1.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
           message: Writing coverage results
