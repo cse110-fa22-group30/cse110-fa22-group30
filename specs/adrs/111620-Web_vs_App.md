@@ -15,7 +15,7 @@ Whether to use website or App to present our work.
 * user's expierence
 * efficency of the usage
 * More possibility of using it under any condition
-* 
+* User's preferrence
 ​
 ## Considered Options
 ​
@@ -24,7 +24,7 @@ Whether to use website or App to present our work.
 ​
 ## Decision Outcome
 ​
-Chosen option: 
+Chosen option: App
 
 ## Pros and Cons of the Options <!-- optional -->
 ### App
