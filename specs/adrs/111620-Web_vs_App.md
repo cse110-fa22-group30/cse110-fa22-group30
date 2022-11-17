@@ -11,7 +11,7 @@ Whether to use website or App for presenting our work.
 ## Decision Drivers <!-- optional -->
 ​
 * Easy to implement
-* 
+* Morepowerful usage 
 ​
 ## Considered Options
 ​
@@ -20,7 +20,7 @@ Whether to use website or App for presenting our work.
 ​
 ## Decision Outcome
 ​
-Chosen option: We're using local storage mainly because of it is simpler and easier to use. 
+Chosen option: 
 
 ## Pros and Cons of the Options <!-- optional -->
 ### Local File
