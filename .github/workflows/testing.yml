@@ -2,7 +2,6 @@
 name: Jest Testing and Code Coverage
 
 on:
-  push:
   pull_request:
 
   workflow_dispatch:
@@ -24,6 +23,12 @@ jobs:
 
       - name: Unit test
         run: npm run ci-test
+      
+      - name: Write results
+        uses: actions-js/push@v1.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: Writing test results
   
   coverage:
     name: Code Coverage
@@ -41,3 +46,9 @@ jobs:
 
       - name: Code coverage
         run: npm run ci-coverage
+      
+      - name: Write results
+        uses: actions-js/push@v1.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: Writing coverage results
