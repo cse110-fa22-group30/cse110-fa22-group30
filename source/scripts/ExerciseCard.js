@@ -7,6 +7,10 @@ class ExerciseCard extends HTMLElement {
 
         // create shadow dom
         const shadow = this.attachShadow({ mode: 'open' });
+        shadow.innerHTML = `<link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        />`;
         // mainContainer is the always visible section of exercise-card
         const mainContainer = document.createElement('div');
         mainContainer.setAttribute('class', 'mainContainer');
@@ -32,33 +36,23 @@ class ExerciseCard extends HTMLElement {
      * @param {object} data: data holding the exercise information
      * @param header: header information
      * @param content: content information
-     * @param editButton: edit button in document
-     * @param submitButton: submit button in document
-     * @param cancelButton: cancel button in document
      * This changes the formating on the page when a button is used.
      */
-    activateEditFunction(
-        data,
-        header,
-        content,
-        editButton,
-        submitButton,
-        cancelButton
-    ) {
+    activateEditFunction(data, header, content) {
         // header expand and collapse event listener, on click
-        const collapseButton = header.querySelector('.collapseButton')
-        // console.log('collapseButton', collapseButton)
-        collapseButton.addEventListener('click', function () {
+        const expandButton = header.querySelector('.expand-arrow');
+        expandButton.addEventListener('click', function () {
             if (content.style.display === 'flex') {
                 content.style.display = 'none';
-                collapseButton.textContent = 'Expand'
+                expandButton.textContent = 'expand_more';
             } else {
                 content.style.display = 'flex';
-                collapseButton.textContent = 'Collapse'
+                expandButton.textContent = 'expand_less';
             }
         });
 
         // edit button event listener, change document ui on click
+        const editButton = content.querySelector('.edit-button');
         editButton.addEventListener('click', function () {
             let toShow = content.getElementsByClassName('schedule-edit');
             let toShow2 = header.getElementsByClassName('schedule-edit');
@@ -79,6 +73,7 @@ class ExerciseCard extends HTMLElement {
         });
 
         // submit button event listener, save to local storage on click
+        const submitButton = content.querySelector('.submit-button');
         submitButton.addEventListener('click', function () {
             //TODO
             //save to local storage
@@ -128,6 +123,7 @@ class ExerciseCard extends HTMLElement {
         });
 
         // cancel button event listener, reset to original values
+        const cancelButton = content.querySelector('.cancel-button');
         cancelButton.addEventListener('click', function () {
             content.getElementsByClassName('duration-input')[0].value =
                 data.duration;
@@ -186,10 +182,10 @@ class ExerciseCard extends HTMLElement {
             (JSON.parse(data.completed) ? 'checked' : '') +
             `>
         <span class="schedule-show exerciseName type-show">` +
-            data.type +
+            capitalizeFirstLetter(data.type) +
             `</span> 
         <select style="display: none" class="schedule-edit type-input" value="` +
-            data.type +
+            capitalizeFirstLetter(data.type) +
             `">
             <option value="running">running</option>
             <option value="running">cycling</option>
@@ -198,9 +194,9 @@ class ExerciseCard extends HTMLElement {
             data.date +
             `</span> <input style="display: none" class="schedule-edit date-input" type="date" value="` +
             data.date +
-        `"/>
-        <button class='collapseButton'>Expand</button>
-    `;        
+            `"/>
+        <span class="material-icons expand-arrow">expand_more</span>
+    `;
 
         content.innerHTML =
             `
@@ -233,38 +229,19 @@ class ExerciseCard extends HTMLElement {
             <textarea class="schedule-edit notes-input" style="display:none">` +
             data.notes +
             ` </textarea>
+            <div>
+                <button class='schedule-show edit-button'>Edit</button>
+                <button class='schedule-edit submit-button' style='display: none'>Submit</button>
+                <button class='schedule-edit cancel-button' style='display: none'>Cancel</button>
+            </div>
         </div>
     `;
-        let editButton = document.createElement('button');
-        editButton.innerText = 'Edit';
-        editButton.classList.add('schedule-show');
-
-        content.appendChild(editButton);
-
-        let submitButton = document.createElement('button');
-        submitButton.innerText = 'Submit';
-        submitButton.classList.add('schedule-edit');
-        submitButton.style.display = 'none';
-
-        let cancelButton = document.createElement('button');
-        cancelButton.innerText = 'Cancel';
-        cancelButton.classList.add('schedule-edit');
-        cancelButton.style.display = 'none';
-
-        let buttonDiv = document.createElement('div');
-        buttonDiv.appendChild(submitButton);
-        buttonDiv.appendChild(cancelButton);
-        content.appendChild(buttonDiv);
-
-        this.activateEditFunction(
-            data,
-            header,
-            content,
-            editButton,
-            submitButton,
-            cancelButton
-        );
+        this.activateEditFunction(data, header, content);
     }
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 // Define custom HTML keyword
