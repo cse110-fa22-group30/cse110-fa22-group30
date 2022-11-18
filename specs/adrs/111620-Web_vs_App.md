@@ -33,6 +33,7 @@ Chosen option: App
 ​
 ### Website
 ​
+* It is faster to finish the project with website format
 * Bad, the user may need to take time to find the path
 
 <!-- markdownlint-disable-file MD013 -->
