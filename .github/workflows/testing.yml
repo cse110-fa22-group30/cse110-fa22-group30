@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    name: Jest Test
+    name: Jest Test and Code Coverage
     runs-on: ubuntu-latest
 
     steps:
@@ -26,30 +26,6 @@ jobs:
       - name: Unit test
         run: npm run ci-test
       
-      - name: Write results
-        run: |
-          git config --global user.name 'Tim-404'
-          git config --global user.email 'Tim-404@github.com'
-          git add test-results/test
-          git commit -m 'Write test results'
-          git push
-  
-  coverage:
-    name: Code Coverage
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-
-      - name: Use Node.js 18
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - run: npm ci
-
       - name: Code coverage
         run: npm run ci-coverage
       
@@ -57,6 +33,6 @@ jobs:
         run: |
           git config --global user.name 'Tim-404'
           git config --global user.email 'Tim-404@github.com'
-          git add test-results/coverage
-          git commit -m 'Write code coverage results'
+          git add test-results/test
+          git commit -m 'Write test results'
           git push
