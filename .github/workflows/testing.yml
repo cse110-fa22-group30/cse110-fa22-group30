@@ -13,9 +13,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          persist-credentials: false
-          fetch-depth: 0
 
       - name: Use Node.js 18
         uses: actions/setup-node@v3
@@ -29,11 +26,11 @@ jobs:
       
       - name: Write results
         run: |
-          git config user.name 'Tim-404'
-          git config user.email 'Tim-404@github.com'
+          git config --global user.name 'Tim-404'
+          git config --global user.email 'Tim-404@github.com'
           git add test-results/test
           git commit -m 'Write test results'
-          git push origin HEAD:${{ github.ref }}
+          git push 
   
   coverage:
     name: Code Coverage
@@ -41,8 +38,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Use Node.js 18
         uses: actions/setup-node@v3
