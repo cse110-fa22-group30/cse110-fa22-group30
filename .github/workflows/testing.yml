@@ -30,7 +30,7 @@ jobs:
       - name: Write results
         run: |
           git config user.name 'Tim-404'
-          git config user.email 'Tim-404@users.noreply.github.com'
+          git config user.email 'Tim-404@github.com'
           git add test-results/test
           git commit -m 'Write test results'
           git push origin HEAD:${{ github.ref }}
@@ -57,7 +57,7 @@ jobs:
       - name: Write results
         run: |
           git config user.name 'Tim-404'
-          git config user.email 'Tim-404@users.noreply.github.com'
+          git config user.email 'Tim-404@github.com'
           git add test-results/coverage
           git commit -m 'Write code coverage results'
           git push origin HEAD:${{ github.ref }}
