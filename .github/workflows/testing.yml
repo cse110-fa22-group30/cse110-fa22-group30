@@ -13,6 +13,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Use Node.js 18
         uses: actions/setup-node@v3
@@ -30,7 +32,7 @@ jobs:
           git config --global user.email 'Tim-404@github.com'
           git add test-results/test
           git commit -m 'Write test results'
-          git push origin HEAD:${{ github.ref }}
+          git push
   
   coverage:
     name: Code Coverage
@@ -38,6 +40,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Use Node.js 18
         uses: actions/setup-node@v3
@@ -55,4 +59,4 @@ jobs:
           git config --global user.email 'Tim-404@github.com'
           git add test-results/coverage
           git commit -m 'Write code coverage results'
-          git push origin HEAD:${{ github.ref }}
+          git push
