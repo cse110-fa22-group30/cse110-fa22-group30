@@ -56,8 +56,8 @@ jobs:
       
       - name: Write results
         run: |
-          git config user.name 'Tim-404'
-          git config user.email 'Tim-404@github.com'
+          git config --global user.name 'Tim-404'
+          git config --global user.email 'Tim-404@github.com'
           git add test-results/coverage
           git commit -m 'Write code coverage results'
-          git push origin HEAD:${{ github.ref }}
+          git push
