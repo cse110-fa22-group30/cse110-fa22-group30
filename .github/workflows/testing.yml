@@ -2,7 +2,7 @@
 name: Jest Test and Code Coverage
 
 on:
-  push:
+  pull_request:
     paths-ignore:
       - 'test-results/**'
 
@@ -16,8 +16,6 @@ jobs:
     steps:
       # Checkout with reference to current branch for pushing later
       - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Use Node.js 18
         uses: actions/setup-node@v3
