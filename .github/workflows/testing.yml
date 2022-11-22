@@ -2,8 +2,7 @@
 name: Jest Test and Code Coverage
 
 on:
-  pull-request:
-    types: [opened, reopened]
+  push:
     paths-ignore:
       - 'test-results/**'
 
