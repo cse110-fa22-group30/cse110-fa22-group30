@@ -11,7 +11,8 @@ name: Lint Code Base
 #############################
 on:
   push:
-  pull_request:
+    paths-ignore:
+      - 'test-results/**'
 
 
 ###############
