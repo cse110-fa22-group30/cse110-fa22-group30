@@ -36,4 +36,5 @@ jobs:
       # Push results back into repo
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
+          commit-message: Write results [skip actions]
           file-pattern: 'test-results/**/*'
