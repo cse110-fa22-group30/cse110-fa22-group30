@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout with reference to current branch for pushing later
+      # Checkout
       - uses: actions/checkout@v3
 
       - name: Use Node.js 18
