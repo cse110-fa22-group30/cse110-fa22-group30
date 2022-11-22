@@ -4,6 +4,7 @@ name: Jest Test and Code Coverage
 on:
   push:
     paths-ignore:
+      - 'coverage/**'
       - 'test-results/**'
 
   workflow_dispatch:
