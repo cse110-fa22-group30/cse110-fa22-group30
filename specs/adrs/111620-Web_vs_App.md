@@ -11,11 +11,8 @@ Whether to use website or App to present our work.
 ## Decision Drivers <!-- optional -->
 ​
 * Easy to implement
-* Morepowerful usage 
-* user's expierence
-* efficency of the usage
-* More possibility of using it under any condition
-* User's preferrence
+* User's Experience
+* Resistant to the test of time
 ​
 ## Considered Options
 ​
@@ -24,16 +21,23 @@ Whether to use website or App to present our work.
 ​
 ## Decision Outcome
 ​
-Chosen option: App
+Chosen option: Website
 
 ## Pros and Cons of the Options <!-- optional -->
 ### App
 ​
-* Good, it is easy for the user to grab and use
+* Good, more streamlined for phone users
+* Bad, Would require developers to learn Script(iOS) or the app developer for android devices
+* Bad, App breaks each time the phone updates
+* Bad, phones have wide range of aspect ratios. We would need to make sure our app works for all of them.
 ​
 ### Website
 ​
-* It is faster to finish the project with website format
-* Bad, the user may need to take time to find the path
+* Good, It is faster to finish the project with website format
+* Good, This is what CSE110 labs have been teaching and the data is easier to import.
+* Good, Most computers stick to a standard aspect ratio. (16:9)
+* Good, *MORE* resistant to updates when compared to apps. (HTML, CSS, and JS are core foundations.)
+* Neutral, The final product is built for websites. Easier for computers to use (mouse and keyboard), but harder for phones to use.
+* Bad, A website like this is usually build for phones in order to be more "portable" (as compared to a laptop)
 
 <!-- markdownlint-disable-file MD013 -->
