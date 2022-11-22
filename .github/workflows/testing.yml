@@ -3,6 +3,7 @@ name: Jest Test and Code Coverage
 
 on:
   pull-request:
+    types: [opened, reopened]
     paths-ignore:
       - 'test-results/**'
 
@@ -36,4 +37,4 @@ jobs:
       # Push results back into repo
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          file-pattern: 'test-results/*'
+          file-pattern: 'test-results/**/*'
