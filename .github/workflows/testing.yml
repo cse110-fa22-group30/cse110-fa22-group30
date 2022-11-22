@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout with reference to current branch for pushing later
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.ref }}
@@ -21,14 +22,18 @@ jobs:
         with:
           node-version: 18
 
+      # Setup CI env for Node
       - run: npm ci
 
+      # Run tests
       - name: Unit test
         run: npm run ci-test
       
+      # Run coverage
       - name: Code coverage
         run: npm run ci-coverage
       
+      # Push results back into repo
       - name: Write results
         run: |
           git config --global user.name 'Tim-404'
