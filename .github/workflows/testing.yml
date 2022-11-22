@@ -36,10 +36,10 @@ jobs:
         run: npm run ci-coverage
       
       # Push results back into repo
-      #- name: Write results
-      #  run: |
-      #    git config --global user.name 'Tim-404'
-      #    git config --global user.email 'Tim-404@github.com'
-      #    git add test-results
-      #    git commit -m 'Write test results'
-      #    git push
+      - name: Write results
+        run: |
+          git config --global user.name 'Tim-404'
+          git config --global user.email 'Tim-404@github.com'
+          git add test-results
+          git commit -m 'Write test results'
+          git push
