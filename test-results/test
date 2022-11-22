@@ -1,6 +1,6 @@
 PASS tests/subtraction.test.js
   ✓ subtracts 4 - 2 to equal 2 (2 ms)
-  ✓ subtracts 5 - 7 to equal -2 (1 ms)
+  ✓ subtracts 5 - 7 to equal -2
 
 PASS tests/sum.test.js
   ✓ adds 1 + 2 to equal 3 (2 ms)
@@ -8,5 +8,5 @@ PASS tests/sum.test.js
 Test Suites: 2 passed, 2 total
 Tests:       3 passed, 3 total
 Snapshots:   0 total
-Time:        0.642 s
+Time:        0.493 s
 Ran all test suites.
