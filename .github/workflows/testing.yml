@@ -3,6 +3,8 @@ name: Jest Test and Code Coverage
 
 on:
   pull_request:
+    paths-ignore:
+      - 'test-results/**'
 
   workflow_dispatch:
 
