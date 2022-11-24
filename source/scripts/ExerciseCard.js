@@ -1,5 +1,8 @@
 // ExerciseCard.js
 
+// import functions from './exports'
+const functions = require('./exports');
+
 // Custom HTML Element Exercise Card
 class ExerciseCard extends HTMLElement {
     constructor() {
@@ -34,8 +37,8 @@ class ExerciseCard extends HTMLElement {
 
     /**
      * @param {object} data: data holding the exercise information
-     * @param header: header information
-     * @param content: content information
+     * @param {object} header: header information
+     * @param {object} content: content information
      * This changes the formating on the page when a button is used.
      */
     activateEditFunction(data, header, content) {
@@ -183,10 +186,10 @@ class ExerciseCard extends HTMLElement {
             (JSON.parse(data.completed) ? 'checked' : '') +
             `>
         <span class="schedule-show exerciseName type-show">` +
-            capitalizeFirstLetter(data.type) +
+            functions.capitalizeFirstLetter(data.type) +
             `</span> 
         <select style="display: none" class="schedule-edit type-input" value="` +
-            capitalizeFirstLetter(data.type) +
+            functions.capitalizeFirstLetter(data.type) +
             `">
             <option value="running">running</option>
             <option value="cycling">cycling</option>
@@ -261,10 +264,6 @@ class ExerciseCard extends HTMLElement {
         };
         return data;
     }
-}
-
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 // Define custom HTML keyword
