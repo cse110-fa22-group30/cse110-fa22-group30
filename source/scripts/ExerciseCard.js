@@ -77,6 +77,7 @@ class ExerciseCard extends HTMLElement {
         submitButton.addEventListener('click', function () {
             //TODO
             //save to local storage
+            this.getRootNode().host.getRootNode().updateNReload();
 
             // scraping information off the document on submittal
             data = {
@@ -178,7 +179,7 @@ class ExerciseCard extends HTMLElement {
         let content = this.shadowRoot.querySelector('.exerciseContent');
         header.innerHTML =
             `
-        <input type="checkbox" class="completedBox" ` +
+        <input type="checkbox" class="completedBox checkBox" id="checkBox"` +
             (JSON.parse(data.completed) ? 'checked' : '') +
             `>
         <span class="schedule-show exerciseName type-show">` +
@@ -188,15 +189,17 @@ class ExerciseCard extends HTMLElement {
             capitalizeFirstLetter(data.type) +
             `">
             <option value="running">running</option>
-            <option value="running">cycling</option>
+            <option value="cycling">cycling</option>
         </select>
         <span class="schedule-show exerciseDate date-show">` +
             data.date +
             `</span> <input style="display: none" class="schedule-edit date-input" type="date" value="` +
             data.date +
             `"/>
-        <span class="material-icons expand-arrow">expand_more</span>
+        <span id="expandButton" class="material-icons expand-arrow">expand_more</span>
     `;
+
+        
 
         content.innerHTML =
             `
@@ -230,13 +233,33 @@ class ExerciseCard extends HTMLElement {
             data.notes +
             ` </textarea>
             <div>
-                <button class='schedule-show edit-button'>Edit</button>
+                <button id="editButton" class='schedule-show edit-button'>Edit</button>
                 <button class='schedule-edit submit-button' style='display: none'>Submit</button>
                 <button class='schedule-edit cancel-button' style='display: none'>Cancel</button>
             </div>
         </div>
     `;
+    this.header = header;
+    this.content = content;
         this.activateEditFunction(data, header, content);
+    }
+
+    getData() {
+        let header = this.header;
+        let content = this.content;
+        let data = {
+            completed: header.getElementsByClassName('checkBox')[0].checked ? "true" : "false",
+            duration:
+                content.getElementsByClassName('duration-input')[0].value,
+            calories:
+                content.getElementsByClassName('calories-input')[0].value,
+            stat1: content.getElementsByClassName('stat1-input')[0].value,
+            stat2: content.getElementsByClassName('stat2-input')[0].value,
+            notes: content.getElementsByClassName('notes-input')[0].value,
+            type: header.getElementsByClassName('type-input')[0].value,
+            date: header.getElementsByClassName('date-input')[0].value,
+        };
+        return data;
     }
 }
 
