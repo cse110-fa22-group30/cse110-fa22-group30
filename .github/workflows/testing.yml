@@ -1,61 +1,41 @@
 ---
-name: Jest Testing and Code Coverage
+name: Jest Test and Code Coverage
 
 on:
-  pull_request:
+  push:
+    paths-ignore:
+      - 'test-results/**'
 
   workflow_dispatch:
 
 jobs:
   test:
-    name: Jest Test
+    name: Jest Test and Code Coverage
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout
       - uses: actions/checkout@v3
-        with:
-          persist-credentials: false
-          fetch-depth: 0
 
       - name: Use Node.js 18
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
+      # Setup CI env for Node
       - run: npm ci
 
+      # Run tests
       - name: Unit test
         run: npm run ci-test
       
-#      - name: Write results
-#        run: |
-#          git config user.name 'github-actions[bot]'
-#          git config user.email 'github-actions[bot]@users.noreply.github.com'
-#          git add test-results/test
-#          git commit -m 'Write test results'
-#          git push origin HEAD:${{ github.ref }}
-  
-  coverage:
-    name: Code Coverage
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Use Node.js 18
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - run: npm ci
-
+      # Run coverage
       - name: Code coverage
         run: npm run ci-coverage
       
-#      - name: Write results
-#        run: |
-#          git config user.name 'github-actions[bot]'
-#          git config user.email 'github-actions[bot]@users.noreply.github.com'
-#          git add test-results/coverage
-#          git commit -m 'Write code coverage results'
-#          git push origin HEAD:${{ github.ref }}
+      # Push results back into repo
+      #- uses: stefanzweifel/git-auto-commit-action@v4
+      #  with:
+      #    # [skip actions] is a special message to avoid triggering workflows
+      #    commit-message: Write results [skip actions]
+      #    file-pattern: 'test-results/**/*'
