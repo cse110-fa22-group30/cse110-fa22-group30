@@ -13,7 +13,8 @@ on:
   push:
     paths-ignore:
       - 'test-results/**'
-    pull_request:
+  pull_request:
+    paths-ignore:
       - 'test-results/**'
 
 ###############
