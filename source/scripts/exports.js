@@ -9,8 +9,9 @@ function capitalizeFirstLetter(string) {
 /**
  * @param {string} string   
  * function that capitalizes the first letter in each word in a given string
-*/
+ */
 function capitalizeFirstLetterInEachWord(string) {
+    // Spreads out a String by ' ' and capitalizes the first letter before rejoining them by ' '
     return string.split(' ').map(word => capitalizeFirstLetter(word)).join(' ');
 }
 
