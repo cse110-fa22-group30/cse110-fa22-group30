@@ -1,9 +1,14 @@
 // Wait for window to load
 window.addEventListener('DOMContentLoaded', init)
 
+/**
+ * Local storage initialization to set and return in 'cards'
+ * @returns json representation of what is stored in 'cards'
+ */
 function initializeStorage() {
     // Check if storage is available
     let options = {
+        // cardio or strength for exercise
         cardioOptions: [
             'running',
             'cycling',
@@ -42,6 +47,7 @@ function initializeStorage() {
     }
 
     let data = [
+        // initial data sets
         {
             completed: 'true',
             type: 'cycling', //must be lower case, match case, or implement .tolowercase()
@@ -71,6 +77,10 @@ function initializeStorage() {
     return JSON.parse(localStorage.getItem('cards'))
 }
 
+/**
+ * function that detects add button in scheduledContainer
+ * @param {*} scheduledContainer contains exercise elements to be completed
+ */
 function addExerciseListener(scheduledContainer) {
     document
         .getElementById('fixedAddButton')
@@ -125,7 +135,7 @@ function init() {
     addExerciseListener(scheduledContainer)
 }
 
-//function: add to scheduled exercises
+// function: add to scheduled exercises
 document.addToScheduled = function (exercise) {
     let scheduledContainer = document.getElementById('scheduledContainer')
     scheduledContainer.insertBefore(
@@ -140,7 +150,7 @@ document.addToCompleted = function (exercise) {
     completedContainer.appendChild(exercise)
 }
 
-//function: saves current state of page & put it in local storage
+// function: saves current state of page & put it in local storage
 document.updateData = function () {
     const scheduledContainer = document.getElementById('scheduledContainer')
     const completedContainer = document.getElementById('completedContainer')

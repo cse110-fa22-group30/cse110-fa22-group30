@@ -323,6 +323,10 @@ class ExerciseCard extends HTMLElement {
         this.checkboxEventListeners()
     }
 
+    /**
+     * Getter function for exercise-data element
+     * @returns {object} data for a exercise object
+     */
     getData() {
         let header = this.header
         let content = this.content

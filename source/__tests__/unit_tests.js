@@ -16,3 +16,20 @@ test('string capitalization 3', () => {
 test('string capitalization 4', () => {
     expect(functions.capitalizeFirstLetter('')).toBe('');
 })
+
+// capitalizeFirstLetterInEachWord(string)
+test('string capitalization 1', () => {
+    expect(functions.capitalizeFirstLetter('ab c de')).toBe('Ab C De');
+});
+
+test('string capitalization 2', () => {
+    expect(functions.capitalizeFirstLetter('1fg hij')).toBe('1fg Hij');
+});
+
+test('string capitalization 3', () => {
+    expect(functions.capitalizeFirstLetter('2 3 4 5 6')).toBe('2 3 4 5 6');
+})
+
+test('string capitalization 4', () => {
+    expect(functions.capitalizeFirstLetter('app  ')).toBe('App  ');
+})
