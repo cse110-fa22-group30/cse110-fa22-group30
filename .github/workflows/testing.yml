@@ -39,3 +39,9 @@ jobs:
       #    # [skip actions] is a special message to avoid triggering workflows
       #    commit-message: Write results [skip actions]
       #    file-pattern: 'test-results/**/*'
+
+      - name: Archive results
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-reports
+          path: test-results
