@@ -1,27 +1,27 @@
 // ExerciseCard.js
 
 class ExerciseCard extends HTMLElement {
-  constructor() {
-    super();
+  constructor () {
+    super()
 
-    const shadow = this.attachShadow({ mode: "open" });
-    const header = document.createElement("span");
-    header.setAttribute("class", "exerciseHeader");
-    const content = document.createElement("div");
-    content.setAttribute("class", "exerciseContent");
-    const style = document.createElement("style");
-    shadow.appendChild(header);
-    shadow.appendChild(content);
-    shadow.appendChild(style);
+    const shadow = this.attachShadow({ mode: 'open' })
+    const header = document.createElement('span')
+    header.setAttribute('class', 'exerciseHeader')
+    const content = document.createElement('div')
+    content.setAttribute('class', 'exerciseContent')
+    const style = document.createElement('style')
+    shadow.appendChild(header)
+    shadow.appendChild(content)
+    shadow.appendChild(style)
   }
 
   /**
    * @param {Object} data
    */
-  set data(data) {
-    console.log("inside of setter function");
+  set data (data) {
+    console.log('inside of setter function')
 
-    if (!data) return;
+    if (!data) return
 
     //     let data = {
     //       completed: "true",
@@ -75,4 +75,4 @@ class ExerciseCard extends HTMLElement {
 //   }
 // }
 
-customElements.define("exercise-card", ExerciseCard);
+customElements.define('exercise-card', ExerciseCard)
