@@ -1,8 +1,7 @@
 // ExerciseCard.js
 
 // import functions from './exports'
-const functions = require('./exports');
-
+//const functions = require('./exports');
 // Custom HTML Element Exercise Card
 class ExerciseCard extends HTMLElement {
     constructor() {
@@ -186,10 +185,10 @@ class ExerciseCard extends HTMLElement {
             (JSON.parse(data.completed) ? 'checked' : '') +
             `>
         <span class="schedule-show exerciseName type-show">` +
-            functions.capitalizeFirstLetter(data.type) +
+            capitalizeFirstLetter(data.type) +
             `</span> 
         <select style="display: none" class="schedule-edit type-input" value="` +
-            functions.capitalizeFirstLetter(data.type) +
+            capitalizeFirstLetter(data.type) +
             `">
             <option value="running">running</option>
             <option value="cycling">cycling</option>
@@ -268,3 +267,10 @@ class ExerciseCard extends HTMLElement {
 
 // Define custom HTML keyword
 customElements.define('exercise-card', ExerciseCard);
+/**
+ * @param {string} string
+ * function that capitalizes the first letter in a given string
+ */
+ function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}

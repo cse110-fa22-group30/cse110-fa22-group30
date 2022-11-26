@@ -43,11 +43,15 @@ function init() {
     } else {
       scheduledContainer.appendChild(exercise)
     }
-    exercise.shadowRoot.getElementById("checkBox").addEventListener("change", document.updateNReload);
+    setTimeout(()=>{
+      exercise.shadowRoot.getElementById("checkBox").addEventListener("change", document.updateNReload);
+
+    }, 100);
   })
 
   document.getElementById("fixedAddButton").addEventListener("click", function() {
     let exercise = document.createElement('exercise-card');
+    console.log(exercise)
     let yourDate = new Date()
 
     exercise.data = {
