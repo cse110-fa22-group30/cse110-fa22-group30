@@ -13,7 +13,8 @@ on:
   push:
     paths-ignore:
       - 'test-results/**'
-    pull_request:
+  pull_request:
+    paths-ignore:
       - 'test-results/**'
 
 ###############
@@ -39,15 +40,15 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
       # Runs --fix in order to fix then run linter check
-      - name: fix
-        run: npx standard --fix
-        continue-on-error: true
+    #  - name: fix
+        #run: npx standard --fix
+       # continue-on-error: true
       # commit easy fixes
-      - name: recommit
-        uses: mikeal/publish-to-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH_NAME: ${{ github.ref_name }}
+     # - name: recommit
+        #uses: mikeal/publish-to-github-action@master
+       # env:
+          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #BRANCH_NAME: ${{ github.ref_name }} 
       ################################
       # Run Linter against code base #
       ################################
