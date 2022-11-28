@@ -1,4 +1,4 @@
-# Decision on App
+# Decision on using website instead of web app
 ​
 * Status: Accepted
 * Deciders: John and Xiaofan <!-- optional -->
@@ -6,7 +6,7 @@
 ​
 ## Context and Problem Statement
 ​
-Whether to use website or App to present our work.
+Whether to use website or web app to present our work.
 ​
 ## Decision Drivers <!-- optional -->
 ​
@@ -17,16 +17,19 @@ Whether to use website or App to present our work.
 ## Considered Options
 ​
 * Website
-* App
+* Web app
 ​
 ## Decision Outcome
 ​
 Chosen option: Website
 
 ## Pros and Cons of the Options <!-- optional -->
-### App
+### Web app
 ​
 * Good, more streamlined for phone users
+* Good, web app, not like a mobile app, can easily adapted to whatever devices the user is using
+* Good, easy to maintain
+* Bad, maybe slower
 * Bad, Would require developers to learn Script(iOS) or the app developer for android devices
 * Bad, App breaks each time the phone updates
 * Bad, phones have wide range of aspect ratios. We would need to make sure our app works for all of them.
