@@ -21,7 +21,6 @@ class ExerciseCard extends HTMLElement {
   get data () {
     return this._data
   }
-  
   /**
    * setter
    * @param {Object} data
