@@ -60,6 +60,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           IGNORE_GITIGNORED_FILES: true
           IGNORE_GENERATED_FILES: true
-          FILTER_REGEX_EXCLUDE: .*node_modules/.*
-          FILTER_REGEX_EXCLUDE: .*coverage/.*
+          FILTER_REGEX_EXCLUDE: (.*node_modules/.*|.*coverage/.*)
+
           
