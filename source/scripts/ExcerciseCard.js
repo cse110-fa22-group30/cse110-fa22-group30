@@ -25,6 +25,7 @@ class ExerciseCard extends HTMLElement {
    * setter
    * @param {Object} data
    */
+  
   set data (data) {
     console.log('inside of setter function')
 
