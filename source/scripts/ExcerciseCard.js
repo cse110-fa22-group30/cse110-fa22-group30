@@ -15,17 +15,10 @@ class ExerciseCard extends HTMLElement {
     shadow.appendChild(style)
   }
 
-  /** 
-   * getters. standardJS: fix this later
-  */
   get data () {
     return this._data
   }
   
-  /**
-   * setters. standardJS: fix this later
-   * @param {Object} data
-   */
   set data (data) {
     console.log('inside of setter function')
 
