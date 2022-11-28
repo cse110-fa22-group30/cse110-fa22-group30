@@ -31,9 +31,6 @@ Chosen option: Website
 * Good, easy to maintain
 * Good, users can manipulate the data on the page
 * Bad, maybe slower
-* Bad, Would require developers to learn Script(iOS) or the app developer for android devices
-* Bad, App breaks each time the phone updates
-* Bad, phones have wide range of aspect ratios. We would need to make sure our app works for all of them
 * Bad, require authentication
 ​
 ### Website
