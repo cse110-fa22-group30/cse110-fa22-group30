@@ -1,19 +1,26 @@
 /* stylelint-disable selector-id-pattern, declaration-no-important */
+
+
 @font-face {
-    font-family: 'Iner';
-    src: url('../font/Inter-bold.woff2');
-    font-weight: bold;
+  font-family: Iner;
+  src: url("../font/Inter-Regular.woff2");
+  font-weight: normal;
 }
 
 @font-face {
-    font-family: 'Iner';
-    src: url('../font/Inter-Regular.woff2');
-    font-weight: normal;
+  font-family: Iner;
+  src: url("../font/Inter-Bold.woff2");
+  font-weight: bold;
 }
 
-* {
-    font-family: Iner;
-    font-weight: normal;
+@font-face {
+  font-family: Iner;
+  src: url("../font/Inter-SemiBold.woff2");
+  font-weight: semibold;
+}
+
+* { /* requires a generic font family to fall back into e.g. sans-serif */
+  font-family: Iner, sans-serif;  
 }
 
 header h1 {
