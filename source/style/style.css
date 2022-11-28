@@ -18,7 +18,8 @@
 }
 
 * { /* requires a generic font family to fall back into e.g. sans-serif */
-  font-family: Iner, sans-serif;  
+  font-family: Iner, sans-serif;
+
 }
 
 header h1 {
