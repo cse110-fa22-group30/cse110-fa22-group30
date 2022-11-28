@@ -1,2 +1,2 @@
-exclude_paths:
+exclude_patterns:
 - coverage/
