@@ -1,1 +1,2 @@
-exclude_patterns: "../coverage/"
+exclude_patterns:
+- "**/coverage/*"
