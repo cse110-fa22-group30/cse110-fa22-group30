@@ -28,7 +28,10 @@ Chosen option: GitHub Pages
 ​
 * Good, we have already learnt a lot about how to use GitHub Pages from the class
 * Good, easiest to integrate and use
-* 
+* Bad, no form handling
+* Bad, no continuous deployment
+* Bad, no prerendering
+* Bad, no split testing
 ​
 ### Netlify
 ​
