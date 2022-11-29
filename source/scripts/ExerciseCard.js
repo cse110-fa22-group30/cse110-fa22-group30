@@ -327,20 +327,22 @@ class ExerciseCard extends HTMLElement {
         content.innerHTML =
             `
         <div class="stats">
-            <div>Calories: <span class="schedule-show calories-show details">` +
+            <div>
+            <span style="display:inline-block;width:80px">Calories: </span>
+            <span class="schedule-show calories-show details">` +
             data.calories +
             `</span> <input style="display:none;" class="schedule-edit calories-input" type="number" value="` +
             data.calories +
             `"/></div>
             <div>
-            <span class="stats1-label">${getStat1Label()}: </span>
+            <span class="stats1-label" style="display:inline-block;width:80px">${getStat1Label()}: </span>
             <span class="schedule-show stat1-show">` +
             data.stat1 +
             `</span> <input style="display:none;" class="schedule-edit stat1-input" type="number" value="` +
             data.stat1 +
             `"/></div>
             <div>
-            <span class="stats2-label">${getStat2Label()}: </span>
+            <span class="stats2-label" style="display:inline-block;width:80px">${getStat2Label()}: </span>
             <span class="schedule-show stat2-show">` +
             data.stat2 +
             `</span> <input style="display:none;" class="schedule-edit stat2-input" type="number" value="` +
