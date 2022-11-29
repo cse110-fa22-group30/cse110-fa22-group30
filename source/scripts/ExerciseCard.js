@@ -66,7 +66,7 @@ class ExerciseCard extends HTMLElement {
             cursor: pointer;
         }
         `
-        
+
         // Attach Elements to Shadow Dom
         shadow.appendChild(mainContainer)
         mainContainer.appendChild(header)
@@ -93,7 +93,7 @@ class ExerciseCard extends HTMLElement {
      * @param {object} content: content information
      * This changes the formating on the page when a button is used.
      */
-    activateEditFunction(data, header, content) {
+    activateEditFunction(data, header, content, strengthOptions, cardioOptions, strengthStats, cardioStats) {
         // header expand and collapse event listener, on click
         const expandButton = header.querySelector('.expand-button')
         expandButton.addEventListener('click', function () {
@@ -156,7 +156,8 @@ class ExerciseCard extends HTMLElement {
                 data.stat2
             content.getElementsByClassName('notes-show')[0].innerText =
                 data.notes
-            header.getElementsByClassName('type-show')[0].innerText = functions.capitalizeFirstLetterInEachWord(data.type)
+            header.getElementsByClassName('type-show')[0].innerText =
+                functions.capitalizeFirstLetterInEachWord(data.type)
             header.getElementsByClassName('date-show')[0].innerText = data.date
 
             let toShow = content.getElementsByClassName('schedule-show')
@@ -219,6 +220,21 @@ class ExerciseCard extends HTMLElement {
             //delete from local storage
             updateFunc()
         })
+
+        // change of exercise type event listener, change the document ui
+        const typeInput = header.querySelector('.type-input')
+        typeInput.addEventListener('change', function () {
+            const type = typeInput.value
+            const stat1 = content.querySelector('.stats1-label')
+            const stat2 = content.querySelector('.stats2-label')
+            if (strengthOptions.includes(type)) {
+                stat1.innerText = strengthStats.stats1 + ': '
+                stat2.innerText = strengthStats.stats2 + ': '
+            } else if (cardioOptions.includes(type)) {
+                stat1.innerText = cardioStats.stats1 + ': '
+                stat2.innerText = cardioStats.stats2 + ': '
+            }
+        })
     }
 
     /**
@@ -263,8 +279,22 @@ class ExerciseCard extends HTMLElement {
         <select style="display: none" class="schedule-edit type-input" value="` +
             functions.capitalizeFirstLetterInEachWord(data.type) +
             `">
-            ${cardioOptions.map((option) => `<option value="${option}">${functions.capitalizeFirstLetterInEachWord(option)}</option>`).join('')}
-            ${strengthOptions.map((option) => `<option value="${option}">${functions.capitalizeFirstLetterInEachWord(option)}</option>`).join('')}
+            ${cardioOptions
+                .map(
+                    (option) =>
+                        `<option value="${option}">${functions.capitalizeFirstLetterInEachWord(
+                            option
+                        )}</option>`
+                )
+                .join('')}
+            ${strengthOptions
+                .map(
+                    (option) =>
+                        `<option value="${option}">${functions.capitalizeFirstLetterInEachWord(
+                            option
+                        )}</option>`
+                )
+                .join('')}
         </select>
         <span class="schedule-show exerciseDate date-show">` +
             data.date +
@@ -274,30 +304,44 @@ class ExerciseCard extends HTMLElement {
         <span id="expandButton" class="material-icons expand-button schedule-show">expand_more</span>
         <span class='schedule-edit material-icons delete-button' style='display:none;color:red'>delete</span>
     `
+        const getStat1Label = (currentData) => {
+            if (data.type === '') {
+                return cardioStats.stats1 + '/' + strengthStats.stats1
+            } else if (cardioOptions.includes(data.type)) {
+                return cardioStats.stats1
+            } else if (strengthOptions.includes(data.type)) {
+                return strengthStats.stats1
+            }
+        }
+
+        const getStat2Label = (currentData) => {
+            if (data.type === '') {
+                return cardioStats.stats2 + '/' + strengthStats.stats2
+            } else if (cardioOptions.includes(data.type)) {
+                return cardioStats.stats2
+            } else if (strengthOptions.includes(data.type)) {
+                return strengthStats.stats2
+            }
+        }
 
         content.innerHTML =
             `
         <div class="stats">
-        ` +
-            // <div>Duration: <span class="schedule-show duration-show">` +
-            // data.duration +
-            // `
-            // </span> <input style="display:none;" class="schedule-edit duration-input" type="number" value="` +
-            // data.duration +
-            // `"/></div>
-            `
             <div>Calories: <span class="schedule-show calories-show details">` +
             data.calories +
             `</span> <input style="display:none;" class="schedule-edit calories-input" type="number" value="` +
             data.calories +
             `"/></div>
-            <div>Stats1: 
+            <div>
+            <span class="stats1-label">${getStat1Label()}: </span>
             <span class="schedule-show stat1-show">` +
             data.stat1 +
             `</span> <input style="display:none;" class="schedule-edit stat1-input" type="number" value="` +
             data.stat1 +
             `"/></div>
-            <div>Stats2: <span class="schedule-show stat2-show">` +
+            <div>
+            <span class="stats2-label">${getStat2Label()}: </span>
+            <span class="schedule-show stat2-show">` +
             data.stat2 +
             `</span> <input style="display:none;" class="schedule-edit stat2-input" type="number" value="` +
             data.stat2 +
@@ -319,7 +363,7 @@ class ExerciseCard extends HTMLElement {
     `
         this.header = header
         this.content = content
-        this.activateEditFunction(data, header, content)
+        this.activateEditFunction(data, header, content, strengthOptions, cardioOptions, strengthStats, cardioStats)
         this.checkboxEventListeners()
     }
 
