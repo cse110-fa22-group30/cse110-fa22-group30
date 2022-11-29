@@ -1,0 +1,65 @@
+---
+#################################
+#################################
+## Super Linter GitHub Actions ##
+#################################
+#################################
+name: Lint Code Base
+
+#############################
+# Start the job on all push #
+#############################
+on:
+  push:
+    paths-ignore:
+      - 'test-results/**'
+  pull_request:
+    paths-ignore:
+      - 'test-results/**'
+
+###############
+# Set the Job #
+###############
+jobs:
+  build:
+    # Name the Job
+    name: Lint Code Base
+    # Set the agent to run on
+    runs-on: ubuntu-latest
+
+    ##################
+    # Load all steps #
+    ##################
+    steps:
+      ##########################
+      # Checkout the code base #
+      ##########################
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+      # Runs --fix in order to fix then run linter check
+    #  - name: fix
+        #run: npx standard --fix
+       # continue-on-error: true
+      # commit easy fixes
+     # - name: recommit
+        #uses: mikeal/publish-to-github-action@master
+       # env:
+          #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #BRANCH_NAME: ${{ github.ref_name }} 
+      ################################
+      # Run Linter against code base #
+      ################################
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IGNORE_GITIGNORED_FILES: true
+          IGNORE_GENERATED_FILES: true
+          FILTER_REGEX_EXCLUDE: (.*node_modules/.*|.*coverage/.*)
+
+          

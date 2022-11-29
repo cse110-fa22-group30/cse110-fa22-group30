@@ -1,0 +1,47 @@
+---
+name: Jest Test and Code Coverage
+
+on:
+  push:
+    paths-ignore:
+      - 'test-results/**'
+
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Jest Test and Code Coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Setup CI env for Node
+      - run: npm ci
+
+      # Run tests
+      - name: Unit test
+        run: npm run ci-test
+      
+      # Run coverage
+      - name: Code coverage
+        run: npm run ci-coverage
+      
+      # Push results back into repo
+      #- uses: stefanzweifel/git-auto-commit-action@v4
+      #  with:
+      #    # [skip actions] is a special message to avoid triggering workflows
+      #    commit-message: Write results [skip actions]
+      #    file-pattern: 'test-results/**/*'
+
+      - name: Archive results
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-reports
+          path: test-results
