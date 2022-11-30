@@ -3,8 +3,6 @@ name: Jest Test and Code Coverage
 
 on:
   push:
-    paths-ignore:
-      - 'test-results/**'
 
 jobs:
   test:
