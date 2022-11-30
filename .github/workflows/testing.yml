@@ -3,15 +3,13 @@ name: Jest Test and Code Coverage
 
 on:
   push:
-    paths-ignore:
-      - 'test-results/**'
-
-  workflow_dispatch:
 
 jobs:
   test:
     name: Jest Test and Code Coverage
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
 
     steps:
       # Checkout
@@ -38,7 +36,22 @@ jobs:
       #  with:
       #    add: 'test-results'
 
-      - name: Jest Annotations & Coverage
-        uses: mattallty/jest-github-action@v1.0.3
+      #- name: Jest Annotations & Coverage
+      #  uses: mattallty/jest-github-action@v1
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Run tests
+        uses: ospfranco/gh-jester@v1.0.13
+        with:
+          post-comment: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+      
+      - uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            **Hello**
+            🌏
+            !
