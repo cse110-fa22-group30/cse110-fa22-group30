@@ -112,7 +112,7 @@ class ExerciseCard extends HTMLElement {
       const toShow = content.getElementsByClassName('schedule-edit')
       const toShow2 = header.getElementsByClassName('schedule-edit')
       const toHide = content.getElementsByClassName('schedule-show')
-      const toHide2 = header.getElementsByClassName('schedule-show')  // clone is found here (115-127), please try to find a better way to do this, e.g. by using fuctions or variables
+      const toHide2 = header.getElementsByClassName('schedule-show') // clone is found here (115-127), please try to find a better way to do this, e.g. by using fuctions or variables
       for (let i = 0; i < toShow.length; i++) {
         toShow[i].style.display = 'inline-block'
       }
@@ -242,7 +242,7 @@ class ExerciseCard extends HTMLElement {
    * @returns {Object} data
    */
   get data () {
-    return data
+    return this._data
   }
 
   /**
