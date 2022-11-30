@@ -1,7 +1,7 @@
 # To Do Unit Tests via 'npm test'
 
 1) npm install --save-dev jest babel-jest @babel/core @babel/preset-env puppeteer jest-puppeteer
-2) package.json = <br> 
+2) package.json = <br>
 { <br>
 &nbsp;&nbsp;"devDependencies": { <br>
 &nbsp;&nbsp;&nbsp;&nbsp;... <br>
