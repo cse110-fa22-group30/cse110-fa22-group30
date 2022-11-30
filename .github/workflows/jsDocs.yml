@@ -15,6 +15,7 @@ jobs:
         with:
           source_dir: ./source
           output_dir: ./out
+          recurse: true
           front_page: docs.md
 
       - name: Deploy
