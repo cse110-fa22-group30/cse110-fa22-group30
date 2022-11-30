@@ -12,6 +12,8 @@ jobs:
   test:
     name: Jest Test and Code Coverage
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
 
     steps:
       # Checkout
