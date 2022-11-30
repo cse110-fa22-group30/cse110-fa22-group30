@@ -34,7 +34,7 @@ jobs:
         run: npm run coverage
       
       # Push results back into repo
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit-message: Write results
-          file-pattern: 'test-results/**/*'
+      #- uses: stefanzweifel/git-auto-commit-action@v4
+      #  with:
+      #    commit-message: Write results
+      #    file-pattern: 'test-results/**/*'
