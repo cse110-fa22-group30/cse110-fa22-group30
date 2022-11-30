@@ -30,6 +30,10 @@ jobs:
       # Run coverage
       - name: Code coverage
         run: npm run ci-coverage
+
+      - run: |
+          cat test-results/test > test-results/out
+          cat test-results/coverage >> test-results/out
       
       # Push results back into repo
       #- uses: EndBug/add-and-commit@v9
@@ -51,8 +55,4 @@ jobs:
       
       - uses: mshick/add-pr-comment@v2
         with:
-          message-path: 'test-results/test'
-
-      - uses: mshick/add-pr-comment@v2
-        with:
-          message-path: 'test-results/coverage'
+          message-path: 'test-results/out'
