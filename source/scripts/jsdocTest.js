@@ -1,6 +1,6 @@
 /**
  * 
- * @param {does something} a 
+ * @param {*} a 
  * @param {*} b 
  */
 function d (a,b) {
