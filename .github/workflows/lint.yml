@@ -61,5 +61,6 @@ jobs:
           IGNORE_GITIGNORED_FILES: true
           IGNORE_GENERATED_FILES: true
           FILTER_REGEX_EXCLUDE: (.*node_modules/.*|.*coverage/.*)
+          VALIDATE_MARKDOWN: false
 
           
