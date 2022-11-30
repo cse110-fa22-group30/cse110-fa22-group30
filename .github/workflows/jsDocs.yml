@@ -15,6 +15,7 @@ jobs:
           source_dir: ./source
           output_dir: ./out
           template: minami
+          config_file: conf.json
           recurse: true
           front_page: README.md
 
