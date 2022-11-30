@@ -1,27 +1,17 @@
 {
+	"plugins": ["plugins/markdown"],
+	"recurseDepth": 10,
+	"source": {
+			"includePattern": ".+\\.js(doc|x)?$",
+			"excludePattern": "(^|\\/|\\\\)_"
+	},
+	"sourceType": "module",
 	"tags": {
 			"allowUnknownTags": true,
-			"dictionaries": ["jsdoc"]
+			"dictionaries": ["jsdoc","closure"]
 	},
-	"source": {
-			"include": ["lib", "package.json", "README.md"],
-			"includePattern": ".js$",
-			"excludePattern": "(node_modules/|docs)"
-	},
-	"plugins": [
-			"plugins/markdown"
-	],
 	"templates": {
 			"cleverLinks": false,
-			"monospaceLinks": true,
-			"useLongnameInNav": false,
-			"showInheritedInNav": true
-	},
-	"opts": {
-			"destination": "./docs/",
-			"encoding": "utf8",
-			"private": true,
-			"recurse": true,
-			"template": "./node_modules/minami"
+			"monospaceLinks": false
 	}
 }
