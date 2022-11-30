@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', init)
  */
 function initializeStorage () {
   // Check if storage is available
-  let options = {
+  const options = {
     // cardio or strength for exercise
     cardioOptions: [
       'running',
@@ -19,11 +19,11 @@ function initializeStorage () {
       'skiiing',
       'rowing',
       'elliptical',
-      'stairmaster',
+      'stairmaster'
     ],
     cardioStats: {
       stats1: 'Distance',
-      stats2: 'Time',
+      stats2: 'Time'
     },
     strengthOptions: [
       'squats',
@@ -38,36 +38,36 @@ function initializeStorage () {
       'bicep curls',
       'tricep dips',
       'shoulder press',
-      'deadlifts',
+      'deadlifts'
     ],
     strengthStats: {
       stats1: 'Sets',
-      stats2: 'Reps',
-    },
+      stats2: 'Reps'
+    }
   }
 
-  let data = [
+  const data = [
     // initial data sets
     {
       completed: 'true',
-      type: 'cycling', //must be lower case, match case, or implement .tolowercase()
-      date: '2023-01-01', //must be in this format to make coding the input of date easier
+      type: 'cycling', // must be lower case, match case, or implement .tolowercase()
+      date: '2023-01-01', // must be in this format to make coding the input of date easier
       // duration: 2,
       calories: 222,
       stat1: 222,
       stat2: 222,
-      notes: 'notes of a graphagra, lionger so it makes sense as a note',
+      notes: 'notes of a graphagra, lionger so it makes sense as a note'
     },
     {
       completed: 'false',
-      type: 'running', //must be lower case, match case, or implement .tolowercase()
-      date: '2021-01-01', //must be in this format to make coding the input of date easier
+      type: 'running', // must be lower case, match case, or implement .tolowercase()
+      date: '2021-01-01', // must be in this format to make coding the input of date easier
       // duration: 2,
       calories: 111,
       stat1: 111,
       stat2: 111,
-      notes: 'notes of a graphagra, lionger so it makes sense as a note',
-    },
+      notes: 'notes of a graphagra, lionger so it makes sense as a note'
+    }
   ]
   if (localStorage.getItem('cards') == null) {
     localStorage.setItem('cards', JSON.stringify(data))
@@ -85,18 +85,18 @@ function addExerciseListener (scheduledContainer) {
   document
     .getElementById('fixedAddButton')
     .addEventListener('click', function () {
-      let exercise = document.createElement('exercise-card')
-      let yourDate = new Date()
+      const exercise = document.createElement('exercise-card')
+      const yourDate = new Date()
 
       exercise.data = {
         completed: 'false',
-        type: '', //must be lower case, match case, or implement .tolowercase()
-        date: yourDate.toISOString().split('T')[0], //must be in this format to make coding the input of date easier
+        type: '', // must be lower case, match case, or implement .tolowercase()
+        date: yourDate.toISOString().split('T')[0], // must be in this format to make coding the input of date easier
         // duration: '',
         calories: '',
         stat1: '',
         stat2: '',
-        notes: '',
+        notes: ''
       }
       exercise.shadowRoot
         .getElementById('checkBox')
@@ -116,11 +116,11 @@ function init () {
   const scheduledContainer = document.getElementById('scheduledContainer')
   const completedContainer = document.getElementById('completedContainer')
 
-  let data = initializeStorage()
+  const data = initializeStorage()
 
   // set exercise data
   data.forEach((element, index) => {
-    let exercise = document.createElement('exercise-card')
+    const exercise = document.createElement('exercise-card')
     exercise.data = element
     if (element.completed === 'true') {
       completedContainer.appendChild(exercise)
@@ -137,7 +137,7 @@ function init () {
 
 // function: add to scheduled exercises
 document.addToScheduled = function (exercise) {
-  let scheduledContainer = document.getElementById('scheduledContainer')
+  const scheduledContainer = document.getElementById('scheduledContainer')
   scheduledContainer.insertBefore(
     exercise,
     document.getElementById('insertPoint')
@@ -146,7 +146,7 @@ document.addToScheduled = function (exercise) {
 
 // function: add to completed exercises
 document.addToCompleted = function (exercise) {
-  let completedContainer = document.getElementById('completedContainer')
+  const completedContainer = document.getElementById('completedContainer')
   completedContainer.appendChild(exercise)
 }
 
@@ -155,16 +155,16 @@ document.updateData = function () {
   const scheduledContainer = document.getElementById('scheduledContainer')
   const completedContainer = document.getElementById('completedContainer')
 
-  scheduledList = scheduledContainer.getElementsByTagName('exercise-card')
-  completedList = completedContainer.getElementsByTagName('exercise-card')
+  const scheduledList = scheduledContainer.getElementsByTagName('exercise-card')
+  const completedList = completedContainer.getElementsByTagName('exercise-card')
 
-  let newData = []
+  const newData = []
 
-  for (var i = 0; i < scheduledList.length; i++) {
+  for (let i = 0; i < scheduledList.length; i++) {
     newData.push(scheduledList[i].getData())
   }
-  for (var i = 0; i < completedList.length; i++) {
-    newData.push(completedList[i].getData())
+  for (let x = 0; x < completedList.length; x++) {
+    newData.push(completedList[x].getData())
   }
 
   localStorage.setItem('cards', JSON.stringify(newData))

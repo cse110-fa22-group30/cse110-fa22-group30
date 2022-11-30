@@ -112,7 +112,7 @@ class ExerciseCard extends HTMLElement {
       const toShow = content.getElementsByClassName('schedule-edit')
       const toShow2 = header.getElementsByClassName('schedule-edit')
       const toHide = content.getElementsByClassName('schedule-show')
-      const toHide2 = header.getElementsByClassName('schedule-show')
+      const toHide2 = header.getElementsByClassName('schedule-show')  // clone is found here (115-127), please try to find a better way to do this, e.g. by using fuctions or variables
       for (let i = 0; i < toShow.length; i++) {
         toShow[i].style.display = 'inline-block'
       }
@@ -137,7 +137,7 @@ class ExerciseCard extends HTMLElement {
       data = {
         // duration:
         //     content.getElementsByClassName('duration-input')[0].value,
-        calories:
+        calories: // clone found here, please try to find a better way to do this, e.g. by using fuctions or variables
           content.getElementsByClassName('calories-input')[0].value,
         stat1: content.getElementsByClassName('stat1-input')[0].value,
         stat2: content.getElementsByClassName('stat2-input')[0].value,
@@ -158,12 +158,12 @@ class ExerciseCard extends HTMLElement {
         data.notes
       header.getElementsByClassName('type-show')[0].innerText =
         functions.capitalizeFirstLetterInEachWord(data.type)
-      header.getElementsByClassName('date-show')[0].innerText = data.date
+      header.getElementsByClassName('date-show')[0].innerText = data.date // clone is found here (20 lines), please try to find a better way to do this, e.g. by using fuctions or variables
 
       const toShow = content.getElementsByClassName('schedule-show')
       const toShow2 = header.getElementsByClassName('schedule-show')
       const toHide = content.getElementsByClassName('schedule-edit')
-      const toHide2 = header.getElementsByClassName('schedule-edit')
+      const toHide2 = header.getElementsByClassName('schedule-edit') // clone is found here (166-178), please try to find a better way to do this, e.g. by using fuctions or variables
       for (let i = 0; i < toShow.length; i++) {
         toShow[i].style.display = 'inline-block'
       }
@@ -189,7 +189,7 @@ class ExerciseCard extends HTMLElement {
       content.getElementsByClassName('stat2-input')[0].value = data.stat2
       content.getElementsByClassName('notes-input')[0].value = data.notes
       header.getElementsByClassName('type-input')[0].value = data.type
-      header.getElementsByClassName('date-input')[0].value = data.date
+      header.getElementsByClassName('date-input')[0].value = data.date // clone is found here (20 lines), please try to find a better way to do this, e.g. by using fuctions or variables
 
       const toShow = content.getElementsByClassName('schedule-show')
       const toShow2 = header.getElementsByClassName('schedule-show')
@@ -389,7 +389,7 @@ class ExerciseCard extends HTMLElement {
         ? 'true'
         : 'false',
       // duration: content.getElementsByClassName('duration-input')[0].value,
-      calories: content.getElementsByClassName('calories-input')[0].value,
+      calories: content.getElementsByClassName('calories-input')[0].value, // clone was found here, needs fixing
       stat1: content.getElementsByClassName('stat1-input')[0].value,
       stat2: content.getElementsByClassName('stat2-input')[0].value,
       notes: content.getElementsByClassName('notes-input')[0].value,
