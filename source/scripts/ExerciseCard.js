@@ -109,28 +109,28 @@ class ExerciseCard extends HTMLElement {
     // edit button event listener, change document ui on click
     const editButton = content.querySelector('.edit-button')
     editButton.addEventListener('click', function () {
-      let toShow = content.getElementsByClassName('schedule-edit')
-      let toShow2 = header.getElementsByClassName('schedule-edit')
-      let toHide = content.getElementsByClassName('schedule-show')
-      let toHide2 = header.getElementsByClassName('schedule-show')
-      for (var i = 0; i < toShow.length; i++) {
+      const toShow = content.getElementsByClassName('schedule-edit')
+      const toShow2 = header.getElementsByClassName('schedule-edit')
+      const toHide = content.getElementsByClassName('schedule-show')
+      const toHide2 = header.getElementsByClassName('schedule-show')
+      for (let i = 0; i < toShow.length; i++) {
         toShow[i].style.display = 'inline-block'
       }
-      for (var i = 0; i < toShow2.length; i++) {
-        toShow2[i].style.display = 'inline-block'
+      for (let x = 0; x < toShow2.length; x++) {
+        toShow2[x].style.display = 'inline-block'
       }
-      for (var i = 0; i < toHide.length; i++) {
-        toHide[i].style.display = 'none'
+      for (let y = 0; y < toHide.length; y++) {
+        toHide[y].style.display = 'none'
       }
-      for (var i = 0; i < toHide2.length; i++) {
-        toHide2[i].style.display = 'none'
+      for (let z = 0; z < toHide2.length; z++) {
+        toHide2[z].style.display = 'none'
       }
     })
 
     // submit button event listener, save to local storage on click
     const submitButton = content.querySelector('.submit-button')
     submitButton.addEventListener('click', function () {
-      //save to local storage
+      // save to local storage
       this.getRootNode().host.getRootNode().updateData()
 
       // scraping information off the document on submit
@@ -143,7 +143,7 @@ class ExerciseCard extends HTMLElement {
         stat2: content.getElementsByClassName('stat2-input')[0].value,
         notes: content.getElementsByClassName('notes-input')[0].value,
         type: header.getElementsByClassName('type-input')[0].value,
-        date: header.getElementsByClassName('date-input')[0].value,
+        date: header.getElementsByClassName('date-input')[0].value
       }
 
       // content.getElementsByClassName('duration-show')[0].innerText =
@@ -160,21 +160,21 @@ class ExerciseCard extends HTMLElement {
         functions.capitalizeFirstLetterInEachWord(data.type)
       header.getElementsByClassName('date-show')[0].innerText = data.date
 
-      let toShow = content.getElementsByClassName('schedule-show')
-      let toShow2 = header.getElementsByClassName('schedule-show')
-      let toHide = content.getElementsByClassName('schedule-edit')
-      let toHide2 = header.getElementsByClassName('schedule-edit')
-      for (var i = 0; i < toShow.length; i++) {
+      const toShow = content.getElementsByClassName('schedule-show')
+      const toShow2 = header.getElementsByClassName('schedule-show')
+      const toHide = content.getElementsByClassName('schedule-edit')
+      const toHide2 = header.getElementsByClassName('schedule-edit')
+      for (let i = 0; i < toShow.length; i++) {
         toShow[i].style.display = 'inline-block'
       }
-      for (var i = 0; i < toShow2.length; i++) {
-        toShow2[i].style.display = 'inline-block'
+      for (let x = 0; x < toShow2.length; x++) {
+        toShow2[x].style.display = 'inline-block'
       }
-      for (var i = 0; i < toHide.length; i++) {
-        toHide[i].style.display = 'none'
+      for (let y = 0; y < toHide.length; y++) {
+        toHide[y].style.display = 'none'
       }
-      for (var i = 0; i < toHide2.length; i++) {
-        toHide2[i].style.display = 'none'
+      for (let y = 0; y < toHide2.length; y++) {
+        toHide2[y].style.display = 'none'
       }
     })
 
@@ -191,21 +191,21 @@ class ExerciseCard extends HTMLElement {
       header.getElementsByClassName('type-input')[0].value = data.type
       header.getElementsByClassName('date-input')[0].value = data.date
 
-      let toShow = content.getElementsByClassName('schedule-show')
-      let toShow2 = header.getElementsByClassName('schedule-show')
-      let toHide = content.getElementsByClassName('schedule-edit')
-      let toHide2 = header.getElementsByClassName('schedule-edit')
-      for (var i = 0; i < toShow.length; i++) {
+      const toShow = content.getElementsByClassName('schedule-show')
+      const toShow2 = header.getElementsByClassName('schedule-show')
+      const toHide = content.getElementsByClassName('schedule-edit')
+      const toHide2 = header.getElementsByClassName('schedule-edit')
+      for (let i = 0; i < toShow.length; i++) {
         toShow[i].style.display = 'inline-block'
       }
-      for (var i = 0; i < toShow2.length; i++) {
-        toShow2[i].style.display = 'inline-block'
+      for (let x = 0; x < toShow2.length; x++) {
+        toShow2[x].style.display = 'inline-block'
       }
-      for (var i = 0; i < toHide.length; i++) {
-        toHide[i].style.display = 'none'
+      for (let y = 0; y < toHide.length; y++) {
+        toHide[y].style.display = 'none'
       }
-      for (var i = 0; i < toHide2.length; i++) {
-        toHide2[i].style.display = 'none'
+      for (let z = 0; z < toHide2.length; z++) {
+        toHide2[z].style.display = 'none'
       }
     })
 
@@ -217,7 +217,7 @@ class ExerciseCard extends HTMLElement {
       // remove the card from the document
       this.getRootNode().host.remove()
 
-      //delete from local storage
+      // delete from local storage
       updateFunc()
     })
 
@@ -235,6 +235,14 @@ class ExerciseCard extends HTMLElement {
         stat2.innerText = cardioStats.stats2 + ': '
       }
     })
+  }
+
+  /**
+   * getter for the data
+   * @returns {Object} data
+   */
+  getData() {
+    return data
   }
 
   /**
