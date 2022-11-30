@@ -52,3 +52,7 @@ jobs:
       - uses: mshick/add-pr-comment@v2
         with:
           message-path: 'test-results/test'
+
+      - uses: mshick/add-pr-comment@v2
+        with:
+          message-path: 'test-results/coverage'
