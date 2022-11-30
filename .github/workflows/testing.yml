@@ -6,8 +6,6 @@ on:
     paths-ignore:
       - 'test-results/**'
 
-  workflow_dispatch:
-
 jobs:
   test:
     name: Jest Test and Code Coverage
