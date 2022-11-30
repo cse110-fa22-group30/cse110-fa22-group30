@@ -14,6 +14,7 @@ jobs:
         with:
           source_dir: ./source
           output_dir: ./out
+          template: minami
           recurse: true
           front_page: README.md
 
