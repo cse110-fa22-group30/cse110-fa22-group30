@@ -74,7 +74,7 @@ class ExerciseCard extends HTMLElement {
     shadow.appendChild(styleElem)
   }
 
-  checkboxEventListeners() {
+  checkboxEventListeners () {
     // add event listener to checkbox
     this.shadowRoot
       .getElementById('checkBox')
@@ -93,7 +93,7 @@ class ExerciseCard extends HTMLElement {
    * @param {object} content: content information
    * This changes the formating on the page when a button is used.
    */
-  activateEditFunction(data, header, content, strengthOptions, cardioOptions, strengthStats, cardioStats) {
+  activateEditFunction (data, header, content, strengthOptions, cardioOptions, strengthStats, cardioStats) {
     // header expand and collapse event listener, on click
     const expandButton = header.querySelector('.expand-button')
     expandButton.addEventListener('click', function () {
@@ -241,7 +241,7 @@ class ExerciseCard extends HTMLElement {
    * getter for the data
    * @returns {Object} data
    */
-  getData() {
+  get data () {
     return data
   }
 
@@ -260,7 +260,7 @@ class ExerciseCard extends HTMLElement {
    *   notes: "string",
    * };
    */
-  set data(data) {
+  set data (data) {
     // Returns if data is a falsy value
     if (!data) return
 
@@ -274,8 +274,8 @@ class ExerciseCard extends HTMLElement {
     const cardioStats = options.cardioStats
 
     // set inner html for initial state (not edit) of the element
-    let header = this.shadowRoot.querySelector('.exerciseHeader')
-    let content = this.shadowRoot.querySelector('.exerciseContent')
+    const header = this.shadowRoot.querySelector('.exerciseHeader')
+    const content = this.shadowRoot.querySelector('.exerciseContent')
     header.innerHTML =
       `
         <input type="checkbox" class="completedBox checkBox" id="checkBox"` +
@@ -381,10 +381,10 @@ class ExerciseCard extends HTMLElement {
    * Getter function for exercise-data element
    * @returns {object} data for a exercise object
    */
-  getData() {
-    let header = this.header
-    let content = this.content
-    let data = {
+  getData () {
+    const header = this.header
+    const content = this.content
+    const data = {
       completed: header.getElementsByClassName('checkBox')[0].checked
         ? 'true'
         : 'false',
@@ -394,7 +394,7 @@ class ExerciseCard extends HTMLElement {
       stat2: content.getElementsByClassName('stat2-input')[0].value,
       notes: content.getElementsByClassName('notes-input')[0].value,
       type: header.getElementsByClassName('type-input')[0].value,
-      date: header.getElementsByClassName('date-input')[0].value,
+      date: header.getElementsByClassName('date-input')[0].value
     }
     return data
   }

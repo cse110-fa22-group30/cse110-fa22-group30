@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', init)
  * Local storage initialization to set and return in 'cards'
  * @returns json representation of what is stored in 'cards'
  */
-function initializeStorage() {
+function initializeStorage () {
   // Check if storage is available
   let options = {
     // cardio or strength for exercise
@@ -81,7 +81,7 @@ function initializeStorage() {
  * function that detects add button in scheduledContainer
  * @param {*} scheduledContainer contains exercise elements to be completed
  */
-function addExerciseListener(scheduledContainer) {
+function addExerciseListener (scheduledContainer) {
   document
     .getElementById('fixedAddButton')
     .addEventListener('click', function () {
@@ -111,7 +111,7 @@ function addExerciseListener(scheduledContainer) {
 }
 
 // Initialization function
-function init() {
+function init () {
   // Populate page with 2 exercise cards
   const scheduledContainer = document.getElementById('scheduledContainer')
   const completedContainer = document.getElementById('completedContainer')
