@@ -39,7 +39,7 @@ header h1 {
 
 * :disabled,
 input[disabled] {
-  border: 0cm !important;
+  border: 0 !important;
   background-color: transparent;
   color: black;
 }
@@ -56,7 +56,7 @@ input[disabled] {
   z-index: 1;
   right: 10px;
   bottom: 10px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 50%);
+  box-shadow: 3px 3px 5px black;
 }
 
 #fixedAddButton:hover {
