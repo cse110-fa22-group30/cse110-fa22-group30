@@ -1,7 +1,6 @@
 /* stylelint-disable selector-id-pattern, declaration-no-important */
-
 @font-face {
-  font-family: Inter;
+  font-family: Iner;
   src: url("../font/Inter-Regular.woff2");
   font-weight: normal;
 }
