@@ -22,3 +22,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
+          keep_files: true
+          publish_branch: jsdoctest  # default: gh-pages
