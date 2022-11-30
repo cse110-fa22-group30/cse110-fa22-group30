@@ -34,14 +34,14 @@ jobs:
         run: npm run ci-coverage
       
       # Push results back into repo
-      #- uses: stefanzweifel/git-auto-commit-action@v4
-      #  with:
-      #    # [skip actions] is a special message to avoid triggering workflows
-      #    commit-message: Write results [skip actions]
-      #    file-pattern: 'test-results/**/*'
-
-      - name: Archive results
-        uses: actions/upload-artifact@v3
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          name: test-reports
-          path: test-results
+          # [skip actions] is a special message to avoid triggering workflows
+          commit-message: Write results [skip actions]
+          file-pattern: 'test-results/**/*'
+
+      #- name: Archive results
+      #  uses: actions/upload-artifact@v3
+      #  with:
+      #    name: test-reports
+      #    path: test-results
