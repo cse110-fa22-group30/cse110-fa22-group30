@@ -24,12 +24,12 @@ jobs:
       - run: npm ci
 
       # Run tests
-      #- name: Unit test
-      #  run: npm run ci-test
+      - name: Unit test
+        run: npm run ci-test
       
       # Run coverage
-      #- name: Code coverage
-      #  run: npm run ci-coverage
+      - name: Code coverage
+        run: npm run ci-coverage
       
       # Push results back into repo
       #- uses: EndBug/add-and-commit@v9
@@ -41,17 +41,14 @@ jobs:
       #  env:
       #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
-      - name: Run tests
-        uses: ospfranco/gh-jester@v1.0.13
-        with:
-          post-comment: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+      #- name: Run tests
+      #  uses: ospfranco/gh-jester@v1.0.13
+      #  with:
+      #    post-comment: true
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #    GITHUB_CONTEXT: ${{ toJson(github) }}
       
       - uses: mshick/add-pr-comment@v2
         with:
-          message: |
-            **Hello**
-            🌏
-            !
+          message-path: 'test-results/test'
