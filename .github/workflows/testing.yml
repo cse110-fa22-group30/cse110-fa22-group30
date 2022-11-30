@@ -36,12 +36,9 @@ jobs:
       # Push results back into repo
       #- uses: stefanzweifel/git-auto-commit-action@v4
       #  with:
-      #    # [skip actions] is a special message to avoid triggering workflows
-      #    commit-message: Write results [skip actions]
+      #    commit-message: Write results
       #    file-pattern: 'test-results/**/*'
-
-      - name: Archive results
-        uses: actions/upload-artifact@v3
+      
+      - uses: EndBug/add-and-commit@v9
         with:
-          name: test-reports
-          path: test-results
+          add: 'test-results'

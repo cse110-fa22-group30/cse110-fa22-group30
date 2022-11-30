@@ -16,12 +16,20 @@ class ExerciseCard extends HTMLElement {
   }
 
   /**
+   * getter
+   */
+  get data () {
+    return this._data
+  }
+
+  /**
+   * setter
    * @param {Object} data
    */
   set data (data) {
     console.log('inside of setter function')
 
-    if (!data) return
+    // if (!data) return
 
     //     let data = {
     //       completed: "true",
