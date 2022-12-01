@@ -1,6 +1,6 @@
 /* stylelint-disable selector-id-pattern, declaration-no-important */
 @font-face {
-  font-family: Iner;
+  font-family: Inter;
   src: url("../font/Inter-Regular.woff2");
   font-weight: normal;
 }
@@ -55,7 +55,7 @@ input[disabled] {
   z-index: 1;
   right: 10px;
   bottom: 10px;
-  box-shadow: 3px 3px 5px black;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 #fixedAddButton:hover {

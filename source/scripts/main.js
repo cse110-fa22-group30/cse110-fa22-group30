@@ -53,20 +53,20 @@ function initializeStorage () {
       type: 'cycling', // must be lower case, match case, or implement .tolowercase()
       date: '2023-01-01', // must be in this format to make coding the input of date easier
       // duration: 2,
-      calories: 222,
-      stat1: 222,
-      stat2: 222,
-      notes: 'notes of a graphagra, lionger so it makes sense as a note'
+      calories: 580,
+      stat1: 7500,
+      stat2: 85,
+      notes: 'Tour de France here I come!'
     },
     {
       completed: 'false',
-      type: 'running', // must be lower case, match case, or implement .tolowercase()
+      type: 'bench press', // must be lower case, match case, or implement .tolowercase()
       date: '2021-01-01', // must be in this format to make coding the input of date easier
       // duration: 2,
-      calories: 111,
-      stat1: 111,
-      stat2: 111,
-      notes: 'notes of a graphagra, lionger so it makes sense as a note'
+      calories: 135,
+      stat1: 5,
+      stat2: 5,
+      notes: 'Remember not to skip leg day!!!'
     }
   ]
   if (localStorage.getItem('cards') == null) {
@@ -123,9 +123,9 @@ function init () {
     const exercise = document.createElement('exercise-card')
     exercise.data = element
     if (element.completed === 'true') {
-      completedContainer.appendChild(exercise)
+      document.addToCompleted(exercise)
     } else {
-      scheduledContainer.appendChild(exercise)
+      document.addToScheduled(exercise)
     }
     exercise.shadowRoot
       .getElementById('checkBox')
@@ -135,19 +135,46 @@ function init () {
   addExerciseListener(scheduledContainer)
 }
 
-// function: add to scheduled exercises
+// function: add to scheduled exercises in a order sorted by date
 document.addToScheduled = function (exercise) {
   const scheduledContainer = document.getElementById('scheduledContainer')
-  scheduledContainer.insertBefore(
-    exercise,
-    document.getElementById('insertPoint')
-  )
+  const scheduledList = scheduledContainer.getElementsByTagName('exercise-card')
+  
+  // add elemenet to scheduled list based on date
+  if (scheduledList.length === 0) {
+    scheduledContainer.appendChild(exercise)
+  } else {
+    for (let i = 0; i < scheduledList.length; i++) {
+      if (exercise.data.date < scheduledList[i].data.date) {
+        scheduledContainer.insertBefore(exercise, scheduledList[i])
+        break
+      } else if (i === scheduledList.length - 1) {
+        scheduledContainer.appendChild(exercise)
+        break
+      }
+    }
+  }
 }
 
-// function: add to completed exercises
+// function: add to completed exercises in a order sorted by date
 document.addToCompleted = function (exercise) {
   const completedContainer = document.getElementById('completedContainer')
-  completedContainer.appendChild(exercise)
+  const completedList = completedContainer.getElementsByTagName('exercise-card')
+  
+  // add elemenet to completed list based on date
+  if (completedList.length === 0) {
+    completedContainer.appendChild(exercise)
+  } else {
+    for (let i = 0; i < completedList.length; i++) {
+      if (exercise.data.date < completedList[i].data.date) {
+        completedContainer.insertBefore(exercise, completedList[i])
+        break
+      } else if (i === completedList.length - 1) {
+        completedContainer.appendChild(exercise)
+        break
+      }
+    }
+  }
 }
 
 // function: saves current state of page & put it in local storage

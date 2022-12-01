@@ -8,6 +8,9 @@ class ExerciseCard extends HTMLElement {
   constructor() {
     super()
 
+    // add data member variable to the element
+    this._data = {}
+
     // create shadow dom
     const shadow = this.attachShadow({ mode: 'open' })
     shadow.innerHTML = `<link
@@ -64,6 +67,10 @@ class ExerciseCard extends HTMLElement {
 
         .material-icons {
             cursor: pointer;
+        }
+
+        .notes {
+          width: 80%;
         }
         `
 
@@ -130,13 +137,8 @@ class ExerciseCard extends HTMLElement {
     // submit button event listener, save to local storage on click
     const submitButton = content.querySelector('.submit-button')
     submitButton.addEventListener('click', function () {
-      // save to local storage
-      this.getRootNode().host.getRootNode().updateData()
-
       // scraping information off the document on submit
       data = {
-        // duration:
-        //     content.getElementsByClassName('duration-input')[0].value,
         calories: // clone found here, please try to find a better way to do this, e.g. by using fuctions or variables
           content.getElementsByClassName('calories-input')[0].value,
         stat1: content.getElementsByClassName('stat1-input')[0].value,
@@ -145,6 +147,9 @@ class ExerciseCard extends HTMLElement {
         type: header.getElementsByClassName('type-input')[0].value,
         date: header.getElementsByClassName('date-input')[0].value
       }
+
+      // temporary fix for the value
+      header.getElementsByClassName('type-input')[0].setAttribute('value', header.getElementsByClassName('type-input')[0].value)
 
       // content.getElementsByClassName('duration-show')[0].innerText =
       //     data.duration
@@ -176,13 +181,14 @@ class ExerciseCard extends HTMLElement {
       for (let y = 0; y < toHide2.length; y++) {
         toHide2[y].style.display = 'none'
       }
+
+      // save to local storage
+      this.getRootNode().host.getRootNode().updateData()
     })
 
     // cancel button event listener, reset to original values
     const cancelButton = content.querySelector('.cancel-button')
     cancelButton.addEventListener('click', function () {
-      // content.getElementsByClassName('duration-input')[0].value =
-      //     data.duration
       content.getElementsByClassName('calories-input')[0].value =
         data.calories
       content.getElementsByClassName('stat1-input')[0].value = data.stat1
@@ -264,6 +270,9 @@ class ExerciseCard extends HTMLElement {
     // Returns if data is a falsy value
     if (!data) return
 
+    // Sets the data
+    this._data = data
+
     const options = JSON.parse(localStorage.getItem('options'))
     if (!options) {
       console.error('Options not found in local storage')
@@ -285,7 +294,7 @@ class ExerciseCard extends HTMLElement {
       functions.capitalizeFirstLetterInEachWord(data.type) +
       `</span> 
         <select style="display: none" class="schedule-edit type-input" value="` +
-      functions.capitalizeFirstLetterInEachWord(data.type) +
+        data.type +
       `">
             ${cardioOptions
         .map(
@@ -312,20 +321,32 @@ class ExerciseCard extends HTMLElement {
         <span id="expandButton" class="material-icons expand-button schedule-show">expand_more</span>
         <span class='schedule-edit material-icons delete-button' style='display:none;color:red'>delete</span>
     `
-    const getStat1Label = (currentData) => {
-      if (data.type === '') {
-        return cardioStats.stats1 + '/' + strengthStats.stats1
-      } else if (cardioOptions.includes(data.type)) {
+    const getStat1Label = () => {
+      if (cardioOptions.includes(data.type) || (data.type === '')) {
         return cardioStats.stats1
       } else if (strengthOptions.includes(data.type)) {
         return strengthStats.stats1
       }
     }
 
-    const getStat2Label = (currentData) => {
-      if (data.type === '') {
-        return cardioStats.stats2 + '/' + strengthStats.stats2
-      } else if (cardioOptions.includes(data.type)) {
+    const getStats1Units = () => {
+      if (cardioOptions.includes(data.type) || (data.type === '')) {
+        return ' (meters)';
+      } else {
+        return ''
+      }
+    }
+
+    const getStats2Units = () => {
+      if (cardioOptions.includes(data.type) || (data.type === '')) {
+        return ' (minutes)';
+      } else {
+        return ''
+      }
+    }
+
+    const getStat2Label = () => {
+      if (cardioOptions.includes(data.type) || (data.type === '')) {
         return cardioStats.stats2
       } else if (strengthOptions.includes(data.type)) {
         return strengthStats.stats2
@@ -348,20 +369,20 @@ class ExerciseCard extends HTMLElement {
       data.stat1 +
       `</span> <input style="display:none;" class="schedule-edit stat1-input" type="number" value="` +
       data.stat1 +
-      `"/></div>
+      `"/>${getStats1Units()}</span></div>
             <div>
             <span class="stats2-label" style="display:inline-block;width:80px">${getStat2Label()}: </span>
             <span class="schedule-show stat2-show">` +
       data.stat2 +
       `</span> <input style="display:none;" class="schedule-edit stat2-input" type="number" value="` +
       data.stat2 +
-      `"/></div>
+      `"/>${getStats2Units()}</span></div>
         </div>
         <div class="span">
-            <p class="schedule-show notes-show">` +
+            <p class="schedule-show notes-show notes">` +
       data.notes +
       `</p>
-            <textarea class="schedule-edit notes-input" style="display:none">` +
+            <textarea class="schedule-edit notes-input notes" style="display:none">` +
       data.notes +
       ` </textarea>
             <div style='position:absolute;bottom:0;right:20px'>
@@ -388,12 +409,11 @@ class ExerciseCard extends HTMLElement {
       completed: header.getElementsByClassName('checkBox')[0].checked
         ? 'true'
         : 'false',
-      // duration: content.getElementsByClassName('duration-input')[0].value,
-      calories: content.getElementsByClassName('calories-input')[0].value, // clone was found here, needs fixing
+      calories: content.getElementsByClassName('calories-input')[0].value,
       stat1: content.getElementsByClassName('stat1-input')[0].value,
       stat2: content.getElementsByClassName('stat2-input')[0].value,
       notes: content.getElementsByClassName('notes-input')[0].value,
-      type: header.getElementsByClassName('type-input')[0].value,
+      type: header.getElementsByClassName('type-input')[0].getAttribute('value'),
       date: header.getElementsByClassName('date-input')[0].value
     }
     return data
