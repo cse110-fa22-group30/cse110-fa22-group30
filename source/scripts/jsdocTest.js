@@ -17,4 +17,3 @@ function c (a, b) {
   console.log(a + b)
 }
 c(1, 1)
-
