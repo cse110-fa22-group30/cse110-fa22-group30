@@ -1,6 +1,10 @@
 // ExerciseCard.js
 
+/** Class representing a recorded exercise. */
 class ExerciseCard extends HTMLElement {
+  /**
+   * Create a card
+   */
   constructor () {
     super()
 
