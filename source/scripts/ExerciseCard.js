@@ -4,7 +4,13 @@
 import * as functions from './exports.js'
 
 // Custom HTML Element Exercise Card
+/**
+ * @class ExerciseCard
+ */
 class ExerciseCard extends HTMLElement {
+  /**
+   * Setter function for exercise-data element
+   */
   constructor() {
     super()
 
@@ -294,7 +300,7 @@ class ExerciseCard extends HTMLElement {
       functions.capitalizeFirstLetterInEachWord(data.type) +
       `</span> 
         <select style="display: none" class="schedule-edit type-input" value="` +
-        data.type +
+      data.type +
       `">
             ${cardioOptions
         .map(
