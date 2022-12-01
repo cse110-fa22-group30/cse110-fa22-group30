@@ -10,7 +10,7 @@ d(1, 1)
 
 /**
  *
- * @param {number} a - does something dumb
+ * @param {number} a - **does something dumb**
  * @param {number} b - idk moyai
  */
 function c (a, b) {
