@@ -8,8 +8,6 @@ jobs:
   test:
     name: Jest Test and Code Coverage
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
 
     steps:
       # Checkout
@@ -35,8 +33,8 @@ jobs:
 
       # Push results back into repo
       - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          file_pattern: 'test-results/**/*'
+        #with:
+        #  file_pattern: 'test-results/**/*'
 
       - run: |
           cat test-results/test > test-results/out
