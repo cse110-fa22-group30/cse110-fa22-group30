@@ -1,28 +1,27 @@
 /**
  *
- * @param {number} a - does something dumb
+ * @param {number} a - **does something dumb**
  * @param {number} b - idk moyai
  */
-function d (a, b) {
+function e(a, b) {
   console.log(a + b)
 }
-d(1, 1)
+e(1, 1)
 
 /**
  *
  * @param {number} a - **does something dumb**
  * @param {number} b - idk moyai
  */
-function c (a, b) {
+function f(a, b) {
   console.log(a + b)
 }
-c(1, 1)
 
 /**
  *
- * @param {number} a - does something dumb
- * @param {number} b - idk moyai
+ * @param {number} a
+ * @param {number} b
  */
-function apple (a, b) {
+function g(a, b) {
   console.log(a + b)
 }
