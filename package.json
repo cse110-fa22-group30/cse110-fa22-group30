@@ -6,7 +6,6 @@
     "test": "jest --verbose",
     "coverage": "jest --collectCoverage --",
     "ci-test": "jest --ci --verbose > test-results/test 2>&1",
-    "ci-coverage": "jest --ci --collectCoverage -- > test-results/coverage 2>&1",
-    "test:ci": "jest --testLocationInResults --ci --outputFile=test_results.json --json"
+    "ci-coverage": "jest --ci --collectCoverage -- > test-results/coverage 2>&1"
   }
 }
