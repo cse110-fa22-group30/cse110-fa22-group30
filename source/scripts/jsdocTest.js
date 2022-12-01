@@ -18,11 +18,3 @@ function c (a, b) {
 }
 c(1, 1)
 
-/**
- *
- * @param {number} a - does something dumb
- * @param {number} b - idk moyai
- */
-function apple (a, b) {
-  console.log(a + b)
-}
