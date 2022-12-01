@@ -1,6 +1,10 @@
 // ExerciseCard.js
 
+/** Class representing a recorded exercise. */
 class ExerciseCard extends HTMLElement {
+  /**
+   * Create a card
+   */
   constructor () {
     super()
 
@@ -24,7 +28,7 @@ class ExerciseCard extends HTMLElement {
 
   /**
    * setter
-   * @param {Object} data
+   * @param {Object} data - something funny
    */
   set data (data) {
     console.log('inside of setter function')
