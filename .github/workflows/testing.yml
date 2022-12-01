@@ -31,28 +31,16 @@ jobs:
       - name: Code coverage
         run: npm run ci-coverage
 
+      # Push results back into repo
+      - uses: EndBug/add-and-commit@v9
+        with:
+          add: 'test-results'
+
       - run: |
           cat test-results/test > test-results/out
           cat test-results/coverage >> test-results/out
       
-      # Push results back into repo
-      #- uses: EndBug/add-and-commit@v9
-      #  with:
-      #    add: 'test-results'
-
-      #- name: Jest Annotations & Coverage
-      #  uses: mattallty/jest-github-action@v1
-      #  env:
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      #- name: Run tests
-      #  uses: ospfranco/gh-jester@v1.0.13
-      #  with:
-      #    post-comment: true
-      #  env:
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #    GITHUB_CONTEXT: ${{ toJson(github) }}
-      
       - uses: mshick/add-pr-comment@v2
         with:
           message-path: 'test-results/out'
+          allow-repeats: true
