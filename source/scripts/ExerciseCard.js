@@ -40,7 +40,7 @@ class ExerciseCard extends HTMLElement {
             border-radius: 10px;
             margin-bottom: 5px;
             overflow: hidden;
-            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 3px 3px 5px gray;
         }
         
         .exerciseHeader {
@@ -140,6 +140,29 @@ class ExerciseCard extends HTMLElement {
       }
     })
 
+    /**
+     * Function that shows or hides elements after closing the edit interface
+     * 
+     * @param {Object} toShow - the elements to show
+     * @param {Object} toShow2 - the elements to show
+     * @param {Object} toHide - the elements to hide
+     * @param {Object} toHide2 - the elements to hide
+     */
+    function showHideElements (toShow, toShow2, toHide, toHide2) {
+      for (let i = 0; i < toShow.length; i++) {
+        toShow[i].style.display = 'inline-block'
+      }
+      for (let x = 0; x < toShow2.length; x++) {
+        toShow2[x].style.display = 'inline-block'
+      }
+      for (let y = 0; y < toHide.length; y++) {
+        toHide[y].style.display = 'none'
+      }
+      for (let y = 0; y < toHide2.length; y++) {
+        toHide2[y].style.display = 'none'
+      }
+    }
+
     // submit button event listener, save to local storage on click
     const submitButton = content.querySelector('.submit-button')
     submitButton.addEventListener('click', function () {
@@ -175,18 +198,8 @@ class ExerciseCard extends HTMLElement {
       const toShow2 = header.getElementsByClassName('schedule-show')
       const toHide = content.getElementsByClassName('schedule-edit')
       const toHide2 = header.getElementsByClassName('schedule-edit') // clone is found here (166-178), please try to find a better way to do this, e.g. by using fuctions or variables
-      for (let i = 0; i < toShow.length; i++) {
-        toShow[i].style.display = 'inline-block'
-      }
-      for (let x = 0; x < toShow2.length; x++) {
-        toShow2[x].style.display = 'inline-block'
-      }
-      for (let y = 0; y < toHide.length; y++) {
-        toHide[y].style.display = 'none'
-      }
-      for (let y = 0; y < toHide2.length; y++) {
-        toHide2[y].style.display = 'none'
-      }
+      
+      showHideElements(toShow, toShow2, toHide, toHide2)
 
       // save to local storage
       this.getRootNode().host.getRootNode().updateData()
@@ -203,22 +216,12 @@ class ExerciseCard extends HTMLElement {
       header.getElementsByClassName('type-input')[0].value = data.type
       header.getElementsByClassName('date-input')[0].value = data.date // clone is found here (20 lines), please try to find a better way to do this, e.g. by using fuctions or variables
 
-      const show = content.getElementsByClassName('schedule-show')
-      const show2 = header.getElementsByClassName('schedule-show')
-      const hide = content.getElementsByClassName('schedule-edit')
-      const hide2 = header.getElementsByClassName('schedule-edit')
-      for (let s = 0; i < show.length; s++) {
-        show[s].style.display = 'inline-block'
-      }
-      for (let x = 0; x < show2.length; x++) {
-        show2[x].style.display = 'inline-block'
-      }
-      for (let q = 0; q < hide.length; q++) {
-        hide[q].style.display = 'none'
-      }
-      for (let z = 0; z < hide2.length; z++) {
-        hide2[z].style.display = 'none'
-      }
+      const toShow = content.getElementsByClassName('schedule-show')
+      const toShow2 = header.getElementsByClassName('schedule-show')
+      const toHide = content.getElementsByClassName('schedule-edit')
+      const toHide2 = header.getElementsByClassName('schedule-edit')
+
+      showHideElements(toShow, toShow2, toHide, toHide2)
     })
 
     // delete button event listener, delete from local storage on click

@@ -55,7 +55,7 @@ input[disabled] {
   z-index: 1;
   right: 10px;
   bottom: 10px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 3px 5px gray;
 }
 
 #fixedAddButton:hover {
