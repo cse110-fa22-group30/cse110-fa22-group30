@@ -34,9 +34,9 @@ jobs:
         run: npm run ci-coverage
 
       # Push results back into repo
-      - uses: EndBug/add-and-commit@v9
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          add: 'test-results'
+          file_pattern: 'test-results/**/*'
 
       - run: |
           cat test-results/test > test-results/out
