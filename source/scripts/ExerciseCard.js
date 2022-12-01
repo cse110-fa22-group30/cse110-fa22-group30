@@ -11,7 +11,7 @@ class ExerciseCard extends HTMLElement {
   /**
    * Setter function for exercise-data element
    */
-  constructor() {
+  constructor () {
     super()
 
     // add data member variable to the element
@@ -203,21 +203,21 @@ class ExerciseCard extends HTMLElement {
       header.getElementsByClassName('type-input')[0].value = data.type
       header.getElementsByClassName('date-input')[0].value = data.date // clone is found here (20 lines), please try to find a better way to do this, e.g. by using fuctions or variables
 
-      const toShow = content.getElementsByClassName('schedule-show')
-      const toShow2 = header.getElementsByClassName('schedule-show')
-      const toHide = content.getElementsByClassName('schedule-edit')
-      const toHide2 = header.getElementsByClassName('schedule-edit')
-      for (let i = 0; i < toShow.length; i++) {
-        toShow[i].style.display = 'inline-block'
+      const show = content.getElementsByClassName('schedule-show')
+      const show2 = header.getElementsByClassName('schedule-show')
+      const hide = content.getElementsByClassName('schedule-edit')
+      const hide2 = header.getElementsByClassName('schedule-edit')
+      for (let s = 0; i < show.length; s++) {
+        show[s].style.display = 'inline-block'
       }
-      for (let x = 0; x < toShow2.length; x++) {
-        toShow2[x].style.display = 'inline-block'
+      for (let x = 0; x < show2.length; x++) {
+        show2[x].style.display = 'inline-block'
       }
-      for (let y = 0; y < toHide.length; y++) {
-        toHide[y].style.display = 'none'
+      for (let q = 0; q < hide.length; q++) {
+        hide[q].style.display = 'none'
       }
-      for (let z = 0; z < toHide2.length; z++) {
-        toHide2[z].style.display = 'none'
+      for (let z = 0; z < hide2.length; z++) {
+        hide2[z].style.display = 'none'
       }
     })
 
@@ -321,7 +321,7 @@ class ExerciseCard extends HTMLElement {
         </select>
         <span class="schedule-show exerciseDate date-show">` +
       data.date +
-      `</span> <input style="display: none" class="schedule-edit date-input" type="date" value="` +
+      '</span> <input style="display: none" class="schedule-edit date-input" type="date" value="' +
       data.date +
       `"/>
         <span id="expandButton" class="material-icons expand-button schedule-show">expand_more</span>
@@ -337,7 +337,7 @@ class ExerciseCard extends HTMLElement {
 
     const getStats1Units = () => {
       if (cardioOptions.includes(data.type) || (data.type === '')) {
-        return ' (meters)';
+        return ' (meters)'
       } else {
         return ''
       }
@@ -345,7 +345,7 @@ class ExerciseCard extends HTMLElement {
 
     const getStats2Units = () => {
       if (cardioOptions.includes(data.type) || (data.type === '')) {
-        return ' (minutes)';
+        return ' (minutes)'
       } else {
         return ''
       }
@@ -366,21 +366,21 @@ class ExerciseCard extends HTMLElement {
             <span style="display:inline-block;width:80px">Calories: </span>
             <span class="schedule-show calories-show details">` +
       data.calories +
-      `</span> <input style="display:none;" class="schedule-edit calories-input" type="number" value="` +
+      '</span> <input style="display:none;" class="schedule-edit calories-input" type="number" value="' +
       data.calories +
       `"/></div>
             <div>
             <span class="stats1-label" style="display:inline-block;width:80px">${getStat1Label()}: </span>
             <span class="schedule-show stat1-show">` +
       data.stat1 +
-      `</span> <input style="display:none;" class="schedule-edit stat1-input" type="number" value="` +
+      '</span> <input style="display:none;" class="schedule-edit stat1-input" type="number" value="' +
       data.stat1 +
       `"/>${getStats1Units()}</span></div>
             <div>
             <span class="stats2-label" style="display:inline-block;width:80px">${getStat2Label()}: </span>
             <span class="schedule-show stat2-show">` +
       data.stat2 +
-      `</span> <input style="display:none;" class="schedule-edit stat2-input" type="number" value="` +
+      '</span> <input style="display:none;" class="schedule-edit stat2-input" type="number" value="' +
       data.stat2 +
       `"/>${getStats2Units()}</span></div>
         </div>
