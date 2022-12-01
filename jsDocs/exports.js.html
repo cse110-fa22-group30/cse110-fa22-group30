@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>jsdocTest.js - Documentation</title>
+    <title>exports.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">jsdocTest.js</h1>
+    <h1 class="page-title">exports.js</h1>
     
 
     
@@ -40,24 +40,23 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- *
- * @param {number} a - does something dumb
- * @param {number} b - idk moyai
+ * @param {string} string
+ * function that capitalizes the first letter in a given string
  */
-function d (a, b) {
-  console.log(a + b)
+function capitalizeFirstLetter (string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
 }
-d(1, 1)
 
 /**
- *
- * @param {number} a - **does something dumb**
- * @param {number} b - idk moyai
+ * @param {string} string
+ * function that capitalizes the first letter in each word in a given string
  */
-function c (a, b) {
-  console.log(a + b)
+function capitalizeFirstLetterInEachWord (string) {
+  // Spreads out a String by ' ' and capitalizes the first letter before rejoining them by ' '
+  return string.split(' ').map(word => capitalizeFirstLetter(word)).join(' ')
 }
-c(1, 1)
+
+export { capitalizeFirstLetter, capitalizeFirstLetterInEachWord }
 </code></pre>
         </article>
     </section>
