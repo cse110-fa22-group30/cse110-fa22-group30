@@ -232,6 +232,7 @@ class ExerciseCard extends HTMLElement {
       const type = typeInput.value
       const stat1 = content.querySelector('.stats1-label')
       const stat2 = content.querySelector('.stats2-label')
+      // stats dependent on strength or cardio
       if (strengthOptions.includes(type)) {
         stat1.innerText = strengthStats.stats1 + ': '
         stat2.innerText = strengthStats.stats2 + ': '
@@ -243,7 +244,7 @@ class ExerciseCard extends HTMLElement {
   }
 
   /**
-   * getter for the data
+   * Getter function for exercise-data element
    * @returns {Object} data
    */
   get data () {
@@ -320,6 +321,7 @@ class ExerciseCard extends HTMLElement {
         <span id="expandButton" class="material-icons expand-button schedule-show">expand_more</span>
         <span class='schedule-edit material-icons delete-button' style='display:none;color:red'>delete</span>
     `
+    // stat labels dependent on strength or cardio
     const getStat1Label = () => {
       if (cardioOptions.includes(data.type) || (data.type === '')) {
         return cardioStats.stats1
