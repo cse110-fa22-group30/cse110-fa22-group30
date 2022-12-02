@@ -90,7 +90,7 @@ function addExerciseListener (scheduledContainer) {
 
 //TODO:Remove to make initialized page empty
 function init () {
-  // Populate page with 2 exercise cards
+  // Populate page
   const scheduledContainer = document.getElementById('scheduledContainer')
 
   const data = initializeStorage()
@@ -120,7 +120,7 @@ document.addToScheduled = function (exercise) {
   const scheduledContainer = document.getElementById('scheduledContainer')
   const scheduledList = scheduledContainer.getElementsByTagName('exercise-card')
 
-  // add elemenet to scheduled list based on date
+  // add element to scheduled list based on date
   if (scheduledList.length === 0) {
     scheduledContainer.appendChild(exercise)
   } else {
@@ -144,7 +144,7 @@ document.addToCompleted = function (exercise) {
   const completedContainer = document.getElementById('completedContainer')
   const completedList = completedContainer.getElementsByTagName('exercise-card')
 
-  // add elemenet to completed list based on date
+  // add element to completed list based on date
   if (completedList.length === 0) {
     completedContainer.appendChild(exercise)
   } else {
