@@ -1,3 +1,4 @@
+---
 name: GitHub pages
 
 on:
@@ -14,6 +15,8 @@ jobs:
         with:
           source_dir: ./source
           output_dir: ./out
+          template: minami
+          config_file: conf.json
           recurse: true
           front_page: README.md
           config_file: conf.json
@@ -25,4 +28,4 @@ jobs:
           publish_dir: ./out
           destination_dir: ./jsDocs
           keep_files: true
-          publish_branch: jsdoctest  # default: gh-pages
+          publish_branch: jsDocs  # default: gh-pages

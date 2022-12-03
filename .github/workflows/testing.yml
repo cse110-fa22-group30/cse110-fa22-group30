@@ -8,12 +8,12 @@ jobs:
   test:
     name: Jest Test and Code Coverage
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
 
     steps:
       # Checkout
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Use Node.js 18
         uses: actions/setup-node@v3
@@ -24,34 +24,23 @@ jobs:
       - run: npm ci
 
       # Run tests
-      #- name: Unit test
-      #  run: npm run ci-test
+      - name: Unit test
+        run: npm run ci-test
       
       # Run coverage
-      #- name: Code coverage
-      #  run: npm run ci-coverage
-      
-      # Push results back into repo
-      #- uses: EndBug/add-and-commit@v9
-      #  with:
-      #    add: 'test-results'
+      - name: Code coverage
+        run: npm run ci-coverage
 
-      #- name: Jest Annotations & Coverage
-      #  uses: mattallty/jest-github-action@v1
-      #  env:
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Run tests
-        uses: ospfranco/gh-jester@v1.0.13
-        with:
-          post-comment: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+      # Push results back into repo
+      #- uses: stefanzweifel/git-auto-commit-action@v4
+      #  with:
+      #    file_pattern: 'test-results/**/*'
+
+      - run: |
+          cat test-results/test > test-results/out
+          cat test-results/coverage >> test-results/out
       
       - uses: mshick/add-pr-comment@v2
         with:
-          message: |
-            **Hello**
-            🌏
-            !
+          message-path: 'test-results/out'
+          allow-repeats: true
