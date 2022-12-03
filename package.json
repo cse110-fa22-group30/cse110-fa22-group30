@@ -16,5 +16,9 @@
   },
   "dependencies": {
     "common-js": "^0.3.8"
+  },
+  "jest": {
+    "preset": "jest-puppeteer",
+    "verbose": true
   }
 }
