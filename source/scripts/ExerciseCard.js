@@ -422,3 +422,6 @@ class ExerciseCard extends HTMLElement {
 
 // Define custom HTML keyword
 customElements.define('exercise-card', ExerciseCard)
+
+// export stuff for testing
+// export { ..., ...}
