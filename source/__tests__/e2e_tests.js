@@ -10,8 +10,6 @@ describe('Basic user flow for Website', () => {
     console.log('Checking for empty log...')
     // TODO: 1
     // Query select all of the <exercise-card> elements and return the length of that array
-
-    // Expect there that array from earlier to be of length 20, meaning 20 <product-item> elements where found
   })
 
   // Check that "+" button creates an <exercise-card> in edit mode in the "Scheduled" section
@@ -48,25 +46,33 @@ describe('Basic user flow for Website', () => {
     // TODO: 7
   })
 
+  // Check that changing exercise with different stats also changes metrics descriptions. (running => push ups)
+  // Changed metrics descriptions should be saved.
+  it('Checking for updated metrics with certain exercises', async () => {
+    // TODO: 8* (data-dependent)
+  })
+
+  // Reopen edit mode
+
   // Check that changes are NOT saved when changes are rejected.
   it('Checking for stats to stay the same when "X" is pressed in edit mode.', async () => {
-    // TODO: 8* (data-dependent)
+    // TODO: 9* (data-dependent)
   })
 
   // Check that marking an exercise as complete moves it to the "Completed" section.
   // Data should remain intact.
   it('Checking complete button', async () => {
     console.log('Checking number of items in cart on screen after reload...')
-    // TODO: 9* (data-dependent)
+    // TODO: 10* (data-dependent)
   })
 
   // Check that the delete button works (trash can in edit mode)
   it('Checking that delete button removes card', async () => {
-    // TODO: 10
+    // TODO: 11
   })
 
   // Check that local storage remembers the deletion by reloading the page.
   it('Checking that card deletions persist page reload', async () => {
-    // TODO: 11
+    // TODO: 12
   })
 })
