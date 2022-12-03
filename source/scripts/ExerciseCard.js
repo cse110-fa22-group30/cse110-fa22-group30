@@ -1,4 +1,5 @@
 // ExerciseCard.js
+/* global HTMLElement, localStorage, customElements */
 
 // import functions from './exports
 import * as functions from './exports.js'
