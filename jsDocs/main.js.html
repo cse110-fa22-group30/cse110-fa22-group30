@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ExerciseCard.html">ExerciseCard</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ExerciseCard.html#activateEditFunction">activateEditFunction</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ExerciseCard.html#getData">getData</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addExerciseListener">addExerciseListener</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#capitalizeFirstLetter">capitalizeFirstLetter</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#capitalizeFirstLetterInEachWord">capitalizeFirstLetterInEachWord</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#e">e</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#f">f</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#g">g</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#initializeStorage">initializeStorage</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ExerciseCard.html">ExerciseCard</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ExerciseCard.html#activateEditFunction">activateEditFunction</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ExerciseCard.html#getData">getData</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addExerciseListener">addExerciseListener</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#capitalizeFirstLetter">capitalizeFirstLetter</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#capitalizeFirstLetterInEachWord">capitalizeFirstLetterInEachWord</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#initializeStorage">initializeStorage</a></span></li>
 </nav>
 
 <div id="main">
@@ -39,7 +39,8 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// Wait for window to load
+            <pre class="prettyprint source linenums"><code>/* global localStorage */
+// Wait for window to load
 window.addEventListener('DOMContentLoaded', init)
 
 /**
@@ -120,7 +121,7 @@ function initializeStorage () {
 
 /**
  * function that detects add button in scheduledContainer
- * @param {Object} scheduledContainer - contains exercise elements to be completed
+ * @param {*} scheduledContainer contains exercise elements to be completed
  */
 function addExerciseListener (scheduledContainer) {
   document
@@ -150,7 +151,8 @@ function addExerciseListener (scheduledContainer) {
       )
     })
 }
-//TODO:Remove to make initialized page empty
+
+// Initialization function
 function init () {
   // Populate page with 2 exercise cards
   const scheduledContainer = document.getElementById('scheduledContainer')
@@ -174,10 +176,7 @@ function init () {
   addExerciseListener(scheduledContainer)
 }
 
-/**
- * Add exercise card to schedule
- * @param {Object} exercise - Exercise card
- */
+// function: add to scheduled exercises in a order sorted by date
 document.addToScheduled = function (exercise) {
   const scheduledContainer = document.getElementById('scheduledContainer')
   const scheduledList = scheduledContainer.getElementsByTagName('exercise-card')
@@ -198,10 +197,7 @@ document.addToScheduled = function (exercise) {
   }
 }
 
-/**
- * Add to completed exercises in a order sorted by date
- * @param {Object} exercise - exercise card
- */
+// function: add to completed exercises in a order sorted by date
 document.addToCompleted = function (exercise) {
   const completedContainer = document.getElementById('completedContainer')
   const completedList = completedContainer.getElementsByTagName('exercise-card')
@@ -222,9 +218,7 @@ document.addToCompleted = function (exercise) {
   }
 }
 
-/**
- * Saves current state of page &amp; put it in local storage
- */
+// function: saves current state of page &amp; put it in local storage
 document.updateData = function () {
   const scheduledContainer = document.getElementById('scheduledContainer')
   const completedContainer = document.getElementById('completedContainer')
@@ -255,7 +249,7 @@ document.updateData = function () {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sun Dec 04 2022 08:02:03 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sun Dec 04 2022 08:11:14 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
