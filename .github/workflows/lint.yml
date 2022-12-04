@@ -49,5 +49,6 @@ jobs:
           IGNORE_GENERATED_FILES: true
           FILTER_REGEX_EXCLUDE: (.*node_modules/.*|.*coverage/.*)
           VALIDATE_MARKDOWN: false
+          VALIDATE_JSCPD: false
 
           
