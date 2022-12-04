@@ -62,3 +62,39 @@ input[disabled] {
   background-color: #02aef2;
   cursor: pointer;
 }
+
+html,body{
+  display: grid;
+  height: 100%;
+  place-items: center;
+}
+.clock{
+  height: 100px;
+  width: 360px;
+  background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+  border-radius: 20px;
+  animation: animate 1.5s linear infinite;
+}
+.clock .display{
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  height: 85px;
+  width: 345px;
+  text-align: center;
+}
+.clock .display #time{
+  line-height: 85px;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  animation: animate 1.5s linear infinite;
+}
+@keyframes animate {
+  100%{
+    filter: hue-rotate(360deg);
+  }
+}
