@@ -1,4 +1,5 @@
 // ExerciseCard.js
+/* global HTMLElement, localStorage, customElements */
 
 // import functions from './exports
 import * as functions from './exports.js'
@@ -421,3 +422,6 @@ class ExerciseCard extends HTMLElement {
 
 // Define custom HTML keyword
 customElements.define('exercise-card', ExerciseCard)
+
+// export stuff for testing
+// export { ..., ...}
