@@ -10,12 +10,32 @@ describe('Basic user flow for Website', () => {
     console.log('Checking for empty log...')
     // TODO: 1
     // Query select all of the <exercise-card> elements and return the length of that array
+    const numCards = await page.$$eval('exercise-card', (el) => el.length)
+    expect(numCards).toBe(2)
+    const cards = await page.$$('exercise-card')
+    for (const card of cards) {
+      const shadRoot = await card.getProperty('shadowRoot')
+      const deleteButton = await shadRoot.$('.delete-button')
+      await deleteButton.evaluate(b => b.click())
+    }
+    const numCards2 = await page.$$eval('exercise-card', (el) => el.length)
+    expect(numCards2).toBe(0)
   })
 
   // Check that "+" button creates an <exercise-card> in edit mode in the "Scheduled" section
   it('Checking that the "+" button adds an exercise in edit mode', async () => {
     console.log('Clicking the "+" button...')
     // TODO: 2
+    const addBt = await page.$('#fixedAddButton')
+    await addBt.evaluate(b => b.click())
+    const numCards = await page.$$eval('exercise-card', (el) => el.length)
+    expect(numCards).toBe(1)
+    const card = await page.$('exercise-card')
+    const shadRoot = await card.getProperty('shadowRoot')
+    const scheduleCheck = await shadRoot.$('.schedule-edit')
+    const style = await scheduleCheck.getProperty('style')
+    const display = await style.getProperty('display')
+    expect(await display.jsonValue() === 'inline-block').toBe(true)
   })
 
   // Check that after filling in <exercise-card>, the save button (check-mark) works.
