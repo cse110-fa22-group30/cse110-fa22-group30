@@ -82,12 +82,13 @@ html,body{
   height: 100%;
   place-items: center;
 }
-/*
+
 body{
+  /*
   background-image: url(../assets/fitness.jpeg);
   background-repeat:no-repeat;
+  */
 }
-*/
 
 .clock{
   height: 30px;
