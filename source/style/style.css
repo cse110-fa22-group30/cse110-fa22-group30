@@ -64,13 +64,13 @@ input[disabled] {
 }
 
 html,
-body{ 
+body {
   display: grid;
   height: 100%;
   place-items: center;
 }
 
-.clock{ 
+.clock {
   height: 100px;
   width: 360px;
   background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
@@ -78,7 +78,7 @@ body{
   animation: animate 1.5s linear infinite;
 }
 
-.clock .display{ 
+.clock .display {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -89,7 +89,7 @@ body{
   text-align: center;
 }
 
-.clock .display #time{ 
+.clock .display #time {
   line-height: 85px;
   color: #fff;
   font-size: 28px;
@@ -98,8 +98,8 @@ body{
   animation: animate 1.5s linear infinite;
 }
 
-@keyframes animate { 
-  100%{
+@keyframes animate {
+  100% {
     filter: hue-rotate(360deg);
   }
 }

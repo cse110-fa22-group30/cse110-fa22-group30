@@ -9,20 +9,15 @@ setInterval(() => {
   let outDay = 'Sunday'
   if (day = 1) {
     outDay = 'Monday '
-  }
-  else if (day = 2) {
+  } else if (day = 2) {
     outDay = 'Tuesday '
-  }
-  else if (day = 3) {
+  } else if (day = 3) {
     outDay = 'Wednesday '
-  }
-  else if (day = 4) {
+  } else if (day = 4) {
     outDay = 'Thursday '
-  }
-  else if (day = 5) {
+  } else if (day = 5) {
     outDay = 'Friday '
-  }
-  else if (day = 6) {
+  } else if (day = 6) {
     outDay = 'Saturday'
   }
 
