@@ -16,7 +16,7 @@ function initializeStorage () {
       'walking',
       'hiking',
       'skating',
-      'skiiing',
+      'skiing',
       'rowing',
       'elliptical',
       'stairmaster'
