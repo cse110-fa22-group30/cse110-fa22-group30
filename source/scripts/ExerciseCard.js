@@ -391,11 +391,6 @@ class ExerciseCard extends HTMLElement {
             </div>
         </div>
     `
-    /*
-      Replace with images for generic version
-                <span class='schedule-edit material-icons submit-button' style='display:none;color:green'>done</span>
-                <span class='schedule-edit material-icons cancel-button' style='display:none;color:red'>close</span>
-    */
     this.header = header
     this.content = content
     this.activateEditFunction(data, header, content, strengthOptions, cardioOptions, strengthStats, cardioStats)
