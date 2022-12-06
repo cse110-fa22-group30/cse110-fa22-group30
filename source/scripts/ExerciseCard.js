@@ -289,7 +289,7 @@ class ExerciseCard extends HTMLElement {
         <input type="checkbox" class="completedBox checkBox" id="checkBox"` +
       (JSON.parse(data.completed) ? 'checked' : '') +
       `>
-        <span class="schedule-show exerciseName type-show">` +
+        <span class="schedule-show exerciseName type-show" style="width:200px">` +
       functions.capitalizeFirstLetterInEachWord(data.type) +
       `</span> 
         <select style="display: none" class="schedule-edit type-input" value="` +
