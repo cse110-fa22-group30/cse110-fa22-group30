@@ -48,6 +48,7 @@ function initializeStorage () {
 
   const data = [
     // initial data sets
+    /*
     {
       completed: 'true',
       type: 'cycling', // must be lower case, match case, or implement .tolowercase()
@@ -68,6 +69,7 @@ function initializeStorage () {
       stat2: 5,
       notes: 'Remember not to skip leg day!!!'
     }
+    */
   ]
   if (localStorage.getItem('cards') == null) {
     localStorage.setItem('cards', JSON.stringify(data))
