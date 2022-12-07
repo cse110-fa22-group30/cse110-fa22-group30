@@ -247,7 +247,6 @@ describe('Basic user flow for Website', () => {
     const scheduledContainer = await page.$('#scheduledContainer')
     const numScheduledBefore = await scheduledContainer.$$eval('exercise-card', cards => cards.length)
     expect(numScheduledBefore).toBe(0)
-    
     const completedContainer = await page.$('#completedContainer')
     const numCompletedBefore = await completedContainer.$$eval('exercise-card', cards => cards.length)
     expect(numCompletedBefore).toBe(0)
