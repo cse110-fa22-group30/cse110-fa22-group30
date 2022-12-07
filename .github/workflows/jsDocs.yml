@@ -10,11 +10,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       
       - name: Update jsDocs Branch
-        run: git push origin jsDocs --force
+        run: |
+          git checkout --track origin/jsDocs
+          git merge main
+          git push
+          git checkout main
 
       - name: Build
         uses: andstor/jsdoc-action@v1.2.1
