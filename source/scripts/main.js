@@ -88,7 +88,6 @@ function addExerciseListener (scheduledContainer) {
     })
 }
 
-//TODO:Remove to make initialized page empty
 function init () {
   // Populate page
   const scheduledContainer = document.getElementById('scheduledContainer')
