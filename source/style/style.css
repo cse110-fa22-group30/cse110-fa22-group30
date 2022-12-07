@@ -1,0 +1,64 @@
+/* stylelint-disable selector-id-pattern, declaration-no-important */
+@font-face {
+  font-family: Inter;
+  src: url("../font/Inter-Regular.woff2");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("../font/Inter-Bold.woff2");
+  font-weight: bold;
+}
+
+* { /* requires a generic font family to fall back into e.g. sans-serif */
+  font-family: Inter, sans-serif;
+  font-weight: normal;
+}
+
+header h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+#mainContainer {
+  width: 90vw;
+  margin: auto;
+}
+
+#scheduledContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+#completedContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+* :disabled,
+input[disabled] {
+  border: 0 !important;
+  background-color: transparent;
+  color: black;
+}
+
+#fixedAddButton {
+  text-align: center;
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background-color: #53cbfb;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 1;
+  right: 10px;
+  bottom: 10px;
+  box-shadow: 3px 3px 5px gray;
+}
+
+#fixedAddButton:hover {
+  background-color: #02aef2;
+  cursor: pointer;
+}

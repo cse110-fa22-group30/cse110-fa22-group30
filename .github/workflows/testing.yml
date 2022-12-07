@@ -1,0 +1,46 @@
+---
+name: Jest Test and Code Coverage
+
+on:
+  push:
+
+jobs:
+  test:
+    name: Jest Test and Code Coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Setup CI env for Node
+      - run: npm ci
+
+      # Run tests
+      - name: Unit test
+        run: npm run ci-test
+      
+      # Run coverage
+      - name: Code coverage
+        run: npm run ci-coverage
+
+      # Push results back into repo
+      #- uses: stefanzweifel/git-auto-commit-action@v4
+      #  with:
+      #    file_pattern: 'test-results/**/*'
+
+      - run: |
+          cat test-results/test > test-results/out
+          cat test-results/coverage >> test-results/out
+      
+      - uses: mshick/add-pr-comment@v2
+        with:
+          message-path: 'test-results/out'
+          allow-repeats: true
