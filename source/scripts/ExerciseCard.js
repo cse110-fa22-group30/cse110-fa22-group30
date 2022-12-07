@@ -232,12 +232,18 @@ class ExerciseCard extends HTMLElement {
       const type = typeInput.value
       const stat1 = content.querySelector('.stats1-label')
       const stat2 = content.querySelector('.stats2-label')
+      const units1 = content.querySelector('.stats1-units')
+      const units2 = content.querySelector('.stats2-units')
       if (strengthOptions.includes(type)) {
         stat1.innerText = strengthStats.stats1 + ': '
         stat2.innerText = strengthStats.stats2 + ': '
+        units1.innerText = ''
+        units2.innerText = ''
       } else if (cardioOptions.includes(type)) {
         stat1.innerText = cardioStats.stats1 + ': '
         stat2.innerText = cardioStats.stats2 + ': '
+        units1.innerText = ' (meters)'
+        units2.innerText = ' (seconds)'
       }
     })
   }
@@ -329,7 +335,7 @@ class ExerciseCard extends HTMLElement {
     }
 
     const getStats1Units = () => {
-      if (cardioOptions.includes(data.type) || (data.type === '')) {
+      if (cardioOptions.includes(data.type)) {
         return ' (meters)'
       } else {
         return ''
@@ -337,7 +343,7 @@ class ExerciseCard extends HTMLElement {
     }
 
     const getStats2Units = () => {
-      if (cardioOptions.includes(data.type) || (data.type === '')) {
+      if (cardioOptions.includes(data.type)) {
         return ' (minutes)'
       } else {
         return ''
@@ -368,14 +374,14 @@ class ExerciseCard extends HTMLElement {
       data.stat1 +
       '</span> <input style="display:none;" class="schedule-edit stat1-input" type="number" value="' +
       data.stat1 +
-      `"/>${getStats1Units()}</span></div>
+      `"/><div class="stats1-units" style='display:inline-block'>${getStats1Units()}</div></span></div>
             <div>
             <span class="stats2-label" style="display:inline-block;width:80px">${getStat2Label()}: </span>
             <span class="schedule-show stat2-show">` +
       data.stat2 +
       '</span> <input style="display:none;" class="schedule-edit stat2-input" type="number" value="' +
       data.stat2 +
-      `"/>${getStats2Units()}</span></div>
+      `"/><divn class="stats2-units" style='display:inline-block'>${getStats2Units()}</div></span></div>
         </div>
         <div class="span">
             <p class="schedule-show notes-show notes">` +

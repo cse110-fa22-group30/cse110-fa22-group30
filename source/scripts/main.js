@@ -46,31 +46,8 @@ function initializeStorage () {
     }
   }
 
-  const data = [
-    // initial data sets
-    /*
-    {
-      completed: 'true',
-      type: 'cycling', // must be lower case, match case, or implement .tolowercase()
-      date: '2023-01-01', // must be in this format to make coding the input of date easier
-      // duration: 2,
-      calories: 580,
-      stat1: 7500,
-      stat2: 85,
-      notes: 'Tour de France here I come!'
-    },
-    {
-      completed: 'false',
-      type: 'bench press', // must be lower case, match case, or implement .tolowercase()
-      date: '2021-01-01', // must be in this format to make coding the input of date easier
-      // duration: 2,
-      calories: 135,
-      stat1: 5,
-      stat2: 5,
-      notes: 'Remember not to skip leg day!!!'
-    }
-    */
-  ]
+  const data = []
+
   if (localStorage.getItem('cards') == null) {
     localStorage.setItem('cards', JSON.stringify(data))
   }
@@ -94,7 +71,6 @@ function addExerciseListener (scheduledContainer) {
         completed: 'false',
         type: '', // must be lower case, match case, or implement .tolowercase()
         date: yourDate.toISOString().split('T')[0], // must be in this format to make coding the input of date easier
-        // duration: '',
         calories: '',
         stat1: '',
         stat2: '',
@@ -111,6 +87,7 @@ function addExerciseListener (scheduledContainer) {
       )
     })
 }
+
 //TODO:Remove to make initialized page empty
 function init () {
   // Populate page with 2 exercise cards

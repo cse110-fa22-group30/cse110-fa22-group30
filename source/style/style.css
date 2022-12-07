@@ -16,15 +16,16 @@
   font-weight: normal;
 }
 
-
-
-
 header{
   width:90vw;
 }
 
 header h1 {
   text-align: center;
+  font-weight: bold;
+}
+
+h3 {
   font-weight: bold;
 }
 
@@ -36,18 +37,17 @@ header h1 {
 #mainContainer {
   width: 90vw;
   margin: auto;
+  border: '1px solid black';
 }
 
 #scheduledContainer {
   display: flex;
   flex-direction: column;
-  /*font-size:25px;*/
 }
 
 #completedContainer {
   display: flex;
   flex-direction: column;
-  /*font-size:25px;*/
 }
 
 * :disabled,
@@ -59,7 +59,6 @@ input[disabled] {
 
 #fixedAddButton {
   text-align: center;
-  vertical-align: middle;
   width: 50px;
   height: 50px;
   line-height: 50px;
@@ -75,51 +74,4 @@ input[disabled] {
 #fixedAddButton:hover {
   background-color: #02aef2;
   cursor: pointer;
-}
-
-html,body{
-  display: grid;
-  height: 100%;
-  place-items: center;
-}
-
-body{
-  /*
-  background-image: url(../assets/fitness.jpeg);
-  background-repeat:no-repeat;
-  */
-}
-
-.clock{
-  height: 30px;
-  width: 180px;
-  background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
-  border-radius: 20px;
-  animation: animate 1.5s linear infinite;
-  position:absolute;
-  right:10px;
-  top:10px;
-}
-.clock .display{
-  position:absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-  height: 85px;
-  width: 345px;
-  text-align: center;
-}
-.clock .display #time{
-  line-height: 85px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  animation: animate 1.5s linear infinite;
-}
-@keyframes animate {
-  100%{
-    filter: hue-rotate(100deg);
-  }
 }
