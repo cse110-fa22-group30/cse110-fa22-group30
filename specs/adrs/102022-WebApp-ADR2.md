@@ -1,4 +1,4 @@
-# Decision on using website instead of web app
+# Decision on using site instead of web app
 ​
 * Status: Accepted
 * Deciders: John and Xiaofan <!-- optional -->
@@ -6,7 +6,7 @@
 ​
 ## Context and Problem Statement
 ​
-Whether to use website or web app to present our work.
+Whether to use site or web app to present our work.
 ​
 ## Decision Drivers <!-- optional -->
 ​
@@ -16,12 +16,12 @@ Whether to use website or web app to present our work.
 ​
 ## Considered Options
 ​
-* Website
+* site
 * Web app
 ​
 ## Decision Outcome
 ​
-Chosen option: Website
+Chosen option: site
 
 ## Pros and Cons of the Options <!-- optional -->
 ### Web app
@@ -33,14 +33,14 @@ Chosen option: Website
 * Bad, maybe slower
 * Bad, require authentication
 ​
-### Website
+### site
 ​
-* Good, It is faster to finish the project with website format
+* Good, It is faster to finish the project with site format
 * Good, This is what CSE110 labs have been teaching and the data is easier to import.
 * Good, Most computers stick to a standard aspect ratio. (16:9)
 * Good, resistant to updates when compared to apps. (HTML, CSS, and JS are core foundations.)
-* Neutral, The final product is built for websites. Easier for computers to use (mouse and keyboard), but harder for phones to use.
-* Bad, A website like this is usually build for phones in order to be more "portable" (as compared to a laptop)
+* Neutral, The final product is built for sites. Easier for computers to use (mouse and keyboard), but harder for phones to use.
+* Bad, A site like this is usually build for phones in order to be more "portable" (as compared to a laptop)
 * Bad, may have less interaction with users
 
 <!-- markdownlint-disable-file MD013 -->

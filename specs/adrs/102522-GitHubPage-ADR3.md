@@ -43,7 +43,7 @@ Chosen option: GitHub Pages
 
 ### Heroku
 ​
-* Good, we can pick a region to host our website
+* Good, we can pick a region to host our site
 * Good, we can totally control the server environment
 * Good, our site can be deployed to a Heroku region and becomes an origin
 * Good, has access management by CLI commands
