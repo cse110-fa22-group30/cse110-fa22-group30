@@ -80,7 +80,7 @@ function initializeStorage () {
 
 /**
  * function that detects add button in scheduledContainer
- * @param {*} scheduledContainer contains exercise elements to be completed
+ * @param {Object} scheduledContainer - contains exercise elements to be completed
  */
 function addExerciseListener (scheduledContainer) {
   document
@@ -110,8 +110,7 @@ function addExerciseListener (scheduledContainer) {
       )
     })
 }
-
-// Initialization function
+//TODO:Remove to make initialized page empty
 function init () {
   // Populate page with 2 exercise cards
   const scheduledContainer = document.getElementById('scheduledContainer')
@@ -135,7 +134,10 @@ function init () {
   addExerciseListener(scheduledContainer)
 }
 
-// function: add to scheduled exercises in a order sorted by date
+/**
+ * Add exercise card to schedule
+ * @param {Object} exercise - Exercise card
+ */
 document.addToScheduled = function (exercise) {
   const scheduledContainer = document.getElementById('scheduledContainer')
   const scheduledList = scheduledContainer.getElementsByTagName('exercise-card')
@@ -156,7 +158,10 @@ document.addToScheduled = function (exercise) {
   }
 }
 
-// function: add to completed exercises in a order sorted by date
+/**
+ * Add to completed exercises in a order sorted by date
+ * @param {Object} exercise - exercise card
+ */
 document.addToCompleted = function (exercise) {
   const completedContainer = document.getElementById('completedContainer')
   const completedList = completedContainer.getElementsByTagName('exercise-card')
@@ -177,7 +182,9 @@ document.addToCompleted = function (exercise) {
   }
 }
 
-// function: saves current state of page & put it in local storage
+/**
+ * Saves current state of page & put it in local storage
+ */
 document.updateData = function () {
   const scheduledContainer = document.getElementById('scheduledContainer')
   const completedContainer = document.getElementById('completedContainer')
