@@ -21,10 +21,10 @@ jobs:
       - name: Update jsDocs Branch
         run: |
           git checkout jsDocs
+          git merge main
           cd .github
           git ls-files | xargs git update-index --assume-unchanged
           cd ..
-          git merge main
           git push
           git checkout main
 
