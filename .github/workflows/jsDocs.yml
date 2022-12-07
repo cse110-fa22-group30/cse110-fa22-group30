@@ -10,6 +10,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      
+      - name: Update jsDocs Branch
+        run: git push origin jsDocs --force
 
       - name: Build
         uses: andstor/jsdoc-action@v1.2.1
