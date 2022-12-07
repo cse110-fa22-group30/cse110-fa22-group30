@@ -17,11 +17,11 @@ jobs:
         run: |
           git config --global user.email "76505169+Tim-404@users.noreply.github.com"
           git config --global user.name "github bot"
-          git ls-files -- .github | xargs git update-index --assume-unchanged -- .github
       
       - name: Update jsDocs Branch
         run: |
           git checkout jsDocs
+          git ls-files -- .github | xargs git update-index --assume-unchanged -- .github
           git merge main
           git push
           git checkout main
