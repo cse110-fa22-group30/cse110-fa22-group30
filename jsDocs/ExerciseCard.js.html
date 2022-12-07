@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ExerciseCard.html">ExerciseCard</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ExerciseCard.html#activateEditFunction">activateEditFunction</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ExerciseCard.html#getData">getData</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addExerciseListener">addExerciseListener</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#capitalizeFirstLetter">capitalizeFirstLetter</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#capitalizeFirstLetterInEachWord">capitalizeFirstLetterInEachWord</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#initializeStorage">initializeStorage</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="ExerciseCard.html">ExerciseCard</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ExerciseCard.html#activateEditFunction">activateEditFunction</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ExerciseCard.html#getData">getData</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addExerciseListener">addExerciseListener</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#capitalizeFirstLetter">capitalizeFirstLetter</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#capitalizeFirstLetterInEachWord">capitalizeFirstLetterInEachWord</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#e">e</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#f">f</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#g">g</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#initializeStorage">initializeStorage</a></span></li>
 </nav>
 
 <div id="main">
@@ -40,7 +40,6 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>// ExerciseCard.js
-/* global HTMLElement, localStorage, customElements */
 
 // import functions from './exports
 import * as functions from './exports.js'
@@ -274,18 +273,25 @@ class ExerciseCard extends HTMLElement {
       const type = typeInput.value
       const stat1 = content.querySelector('.stats1-label')
       const stat2 = content.querySelector('.stats2-label')
+      const units1 = content.querySelector('.stats1-units')
+      const units2 = content.querySelector('.stats2-units')
+      // stats dependent on strength or cardio
       if (strengthOptions.includes(type)) {
         stat1.innerText = strengthStats.stats1 + ': '
         stat2.innerText = strengthStats.stats2 + ': '
+        units1.innerText = ''
+        units2.innerText = ''
       } else if (cardioOptions.includes(type)) {
         stat1.innerText = cardioStats.stats1 + ': '
         stat2.innerText = cardioStats.stats2 + ': '
+        units1.innerText = ' (meters)'
+        units2.innerText = ' (seconds)'
       }
     })
   }
 
   /**
-   * getter for the data
+   * Getter function for exercise-data element
    * @returns {Object} data
    */
   get data () {
@@ -331,7 +337,7 @@ class ExerciseCard extends HTMLElement {
         &lt;input type="checkbox" class="completedBox checkBox" id="checkBox"` +
       (JSON.parse(data.completed) ? 'checked' : '') +
       `>
-        &lt;span class="schedule-show exerciseName type-show">` +
+        &lt;span class="schedule-show exerciseName type-show" style="width:200px">` +
       functions.capitalizeFirstLetterInEachWord(data.type) +
       `&lt;/span> 
         &lt;select style="display: none" class="schedule-edit type-input" value="` +
@@ -362,6 +368,7 @@ class ExerciseCard extends HTMLElement {
         &lt;span id="expandButton" class="material-icons expand-button schedule-show">expand_more&lt;/span>
         &lt;span class='schedule-edit material-icons delete-button' style='display:none;color:red'>delete&lt;/span>
     `
+    // stat labels dependent on strength or cardio
     const getStat1Label = () => {
       if (cardioOptions.includes(data.type) || (data.type === '')) {
         return cardioStats.stats1
@@ -371,7 +378,7 @@ class ExerciseCard extends HTMLElement {
     }
 
     const getStats1Units = () => {
-      if (cardioOptions.includes(data.type) || (data.type === '')) {
+      if (cardioOptions.includes(data.type)) {
         return ' (meters)'
       } else {
         return ''
@@ -379,7 +386,7 @@ class ExerciseCard extends HTMLElement {
     }
 
     const getStats2Units = () => {
-      if (cardioOptions.includes(data.type) || (data.type === '')) {
+      if (cardioOptions.includes(data.type)) {
         return ' (minutes)'
       } else {
         return ''
@@ -410,14 +417,14 @@ class ExerciseCard extends HTMLElement {
       data.stat1 +
       '&lt;/span> &lt;input style="display:none;" class="schedule-edit stat1-input" type="number" value="' +
       data.stat1 +
-      `"/>${getStats1Units()}&lt;/span>&lt;/div>
+      `"/>&lt;div class="stats1-units" style='display:inline-block'>${getStats1Units()}&lt;/div>&lt;/span>&lt;/div>
             &lt;div>
             &lt;span class="stats2-label" style="display:inline-block;width:80px">${getStat2Label()}: &lt;/span>
             &lt;span class="schedule-show stat2-show">` +
       data.stat2 +
       '&lt;/span> &lt;input style="display:none;" class="schedule-edit stat2-input" type="number" value="' +
       data.stat2 +
-      `"/>${getStats2Units()}&lt;/span>&lt;/div>
+      `"/>&lt;divn class="stats2-units" style='display:inline-block'>${getStats2Units()}&lt;/div>&lt;/span>&lt;/div>
         &lt;/div>
         &lt;div class="span">
             &lt;p class="schedule-show notes-show notes">` +
@@ -428,8 +435,8 @@ class ExerciseCard extends HTMLElement {
       ` &lt;/textarea>
             &lt;div style='position:absolute;bottom:0;right:20px'>
                 &lt;span id='editButton' class='schedule-show material-icons edit-button' style='color:#ffba52'>edit&lt;/span>
-                &lt;span class='schedule-edit material-icons submit-button' style='display:none;color:green'>done&lt;/span>
-                &lt;span class='schedule-edit material-icons cancel-button' style='display:none;color:red'>close&lt;/span>
+                &lt;img src='source/assets/saveIcon.png' class='schedule-edit material-icons submit-button' style='display:none;color:green;width:24px'>
+                &lt;img src='source/assets/undoIcon.png' class='schedule-edit material-icons cancel-button' style='display:none;color:red;width:24px'>
             &lt;/div>
         &lt;/div>
     `
@@ -463,9 +470,6 @@ class ExerciseCard extends HTMLElement {
 
 // Define custom HTML keyword
 customElements.define('exercise-card', ExerciseCard)
-
-// export stuff for testing
-// export { ..., ...}
 </code></pre>
         </article>
     </section>
@@ -478,7 +482,7 @@ customElements.define('exercise-card', ExerciseCard)
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Wed Dec 07 2022 01:53:25 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Wed Dec 07 2022 01:58:13 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
