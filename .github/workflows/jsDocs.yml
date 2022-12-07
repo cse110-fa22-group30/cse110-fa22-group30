@@ -28,4 +28,4 @@ jobs:
           publish_dir: ./out
           destination_dir: ./jsDocs
           keep_files: true
-          publish_branch: main  # default: gh-pages
+          publish_branch: jsDocs  # default: gh-pages
