@@ -1,4 +1,3 @@
-/* global localStorage */
 // Wait for window to load
 window.addEventListener('DOMContentLoaded', init)
 
