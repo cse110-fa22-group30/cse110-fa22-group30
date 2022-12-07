@@ -176,6 +176,7 @@ describe('Basic user flow for Website', () => {
     const stat1 = await stat1Div.getProperty('innerText')
     const stat1Text = await stat1.jsonValue()
     expect(stat1Text).toBe('Sets:')
+
     const stat2Div = await shadow.$('.stats2-label')
     const stat2 = await stat2Div.getProperty('innerText')
     const stat2Text = await stat2.jsonValue()
