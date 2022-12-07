@@ -13,9 +13,10 @@ jobs:
         with:
           fetch-depth: 0
       
-      - name: Check details
+      - name: Setup git config
         run: |
-          git branch -a
+          git config --global user.email "76505169+Tim-404@users.noreply.github.com"
+          git config --global user.name "github bot"
       
       - name: Update jsDocs Branch
         run: |
