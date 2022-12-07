@@ -383,7 +383,7 @@ class ExerciseCard extends HTMLElement {
       data.stat2 +
       '</span> <input style="display:none;" class="schedule-edit stat2-input" type="number" value="' +
       data.stat2 +
-      `"/><divn class="stats2-units" style='display:inline-block'>${getStats2Units()}</div></span></div>
+      `"/><div class="stats2-units" style='display:inline-block'>${getStats2Units()}</div></span></div>
         </div>
         <div class="span">
             <p class="schedule-show notes-show notes">` +
