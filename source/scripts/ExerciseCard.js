@@ -1,4 +1,5 @@
 // ExerciseCard.js
+/* global HTMLElement, localStorage, customElements */
 
 // import functions from './exports
 import * as functions from './exports.js'
@@ -232,18 +233,25 @@ class ExerciseCard extends HTMLElement {
       const type = typeInput.value
       const stat1 = content.querySelector('.stats1-label')
       const stat2 = content.querySelector('.stats2-label')
+      const units1 = content.querySelector('.stats1-units')
+      const units2 = content.querySelector('.stats2-units')
+      // stats dependent on strength or cardio
       if (strengthOptions.includes(type)) {
         stat1.innerText = strengthStats.stats1 + ': '
         stat2.innerText = strengthStats.stats2 + ': '
+        units1.innerText = ''
+        units2.innerText = ''
       } else if (cardioOptions.includes(type)) {
         stat1.innerText = cardioStats.stats1 + ': '
         stat2.innerText = cardioStats.stats2 + ': '
+        units1.innerText = ' (meters)'
+        units2.innerText = ' (seconds)'
       }
     })
   }
 
   /**
-   * getter for the data
+   * Getter function for exercise-data element
    * @returns {Object} data
    */
   get data () {
@@ -289,7 +297,7 @@ class ExerciseCard extends HTMLElement {
         <input type="checkbox" class="completedBox checkBox" id="checkBox"` +
       (JSON.parse(data.completed) ? 'checked' : '') +
       `>
-        <span class="schedule-show exerciseName type-show">` +
+        <span class="schedule-show exerciseName type-show" style="width:200px">` +
       functions.capitalizeFirstLetterInEachWord(data.type) +
       `</span> 
         <select style="display: none" class="schedule-edit type-input" value="` +
@@ -320,6 +328,7 @@ class ExerciseCard extends HTMLElement {
         <span id="expandButton" class="material-icons expand-button schedule-show">expand_more</span>
         <span class='schedule-edit material-icons delete-button' style='display:none;color:red'>delete</span>
     `
+    // stat labels dependent on strength or cardio
     const getStat1Label = () => {
       if (cardioOptions.includes(data.type) || (data.type === '')) {
         return cardioStats.stats1
@@ -329,7 +338,7 @@ class ExerciseCard extends HTMLElement {
     }
 
     const getStats1Units = () => {
-      if (cardioOptions.includes(data.type) || (data.type === '')) {
+      if (cardioOptions.includes(data.type)) {
         return ' (meters)'
       } else {
         return ''
@@ -337,7 +346,7 @@ class ExerciseCard extends HTMLElement {
     }
 
     const getStats2Units = () => {
-      if (cardioOptions.includes(data.type) || (data.type === '')) {
+      if (cardioOptions.includes(data.type)) {
         return ' (minutes)'
       } else {
         return ''
@@ -368,14 +377,14 @@ class ExerciseCard extends HTMLElement {
       data.stat1 +
       '</span> <input style="display:none;" class="schedule-edit stat1-input" type="number" value="' +
       data.stat1 +
-      `"/>${getStats1Units()}</span></div>
+      `"/><div class="stats1-units" style='display:inline-block'>${getStats1Units()}</div></span></div>
             <div>
             <span class="stats2-label" style="display:inline-block;width:80px">${getStat2Label()}: </span>
             <span class="schedule-show stat2-show">` +
       data.stat2 +
       '</span> <input style="display:none;" class="schedule-edit stat2-input" type="number" value="' +
       data.stat2 +
-      `"/>${getStats2Units()}</span></div>
+      `"/><div class="stats2-units" style='display:inline-block'>${getStats2Units()}</div></span></div>
         </div>
         <div class="span">
             <p class="schedule-show notes-show notes">` +
@@ -386,8 +395,8 @@ class ExerciseCard extends HTMLElement {
       ` </textarea>
             <div style='position:absolute;bottom:0;right:20px'>
                 <span id='editButton' class='schedule-show material-icons edit-button' style='color:#ffba52'>edit</span>
-                <span class='schedule-edit material-icons submit-button' style='display:none;color:green'>done</span>
-                <span class='schedule-edit material-icons cancel-button' style='display:none;color:red'>close</span>
+                <img src='source/assets/saveIcon.png' class='schedule-edit material-icons submit-button' style='display:none;color:green;width:24px'>
+                <img src='source/assets/undoIcon.png' class='schedule-edit material-icons cancel-button' style='display:none;color:red;width:24px'>
             </div>
         </div>
     `

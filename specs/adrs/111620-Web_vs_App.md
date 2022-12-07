@@ -6,7 +6,7 @@
 ​
 ## Context and Problem Statement
 ​
-Whether to use website or App to present our work.
+Whether to use site or App to present our work.
 ​
 ## Decision Drivers <!-- optional -->
 ​
@@ -19,7 +19,7 @@ Whether to use website or App to present our work.
 ​
 ## Considered Options
 ​
-* Website
+* Site
 * App
 ​
 ## Decision Outcome
@@ -31,7 +31,7 @@ Chosen option: App
 ​
 * Good, it is easy for the user to grab and use
 ​
-### Website
+### Site
 ​
 * Bad, the user may need to take time to find the path
 

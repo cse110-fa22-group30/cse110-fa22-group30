@@ -16,7 +16,7 @@ function initializeStorage () {
       'walking',
       'hiking',
       'skating',
-      'skiiing',
+      'skiing',
       'rowing',
       'elliptical',
       'stairmaster'
@@ -46,29 +46,8 @@ function initializeStorage () {
     }
   }
 
-  const data = [
-    // initial data sets
-    {
-      completed: 'true',
-      type: 'cycling', // must be lower case, match case, or implement .tolowercase()
-      date: '2023-01-01', // must be in this format to make coding the input of date easier
-      // duration: 2,
-      calories: 580,
-      stat1: 7500,
-      stat2: 85,
-      notes: 'Tour de France here I come!'
-    },
-    {
-      completed: 'false',
-      type: 'bench press', // must be lower case, match case, or implement .tolowercase()
-      date: '2021-01-01', // must be in this format to make coding the input of date easier
-      // duration: 2,
-      calories: 135,
-      stat1: 5,
-      stat2: 5,
-      notes: 'Remember not to skip leg day!!!'
-    }
-  ]
+  const data = []
+
   if (localStorage.getItem('cards') == null) {
     localStorage.setItem('cards', JSON.stringify(data))
   }
@@ -79,7 +58,7 @@ function initializeStorage () {
 
 /**
  * function that detects add button in scheduledContainer
- * @param {*} scheduledContainer contains exercise elements to be completed
+ * @param {Object} scheduledContainer - contains exercise elements to be completed
  */
 function addExerciseListener (scheduledContainer) {
   document
@@ -92,7 +71,6 @@ function addExerciseListener (scheduledContainer) {
         completed: 'false',
         type: '', // must be lower case, match case, or implement .tolowercase()
         date: yourDate.toISOString().split('T')[0], // must be in this format to make coding the input of date easier
-        // duration: '',
         calories: '',
         stat1: '',
         stat2: '',
@@ -110,9 +88,8 @@ function addExerciseListener (scheduledContainer) {
     })
 }
 
-// Initialization function
 function init () {
-  // Populate page with 2 exercise cards
+  // Populate page
   const scheduledContainer = document.getElementById('scheduledContainer')
 
   const data = initializeStorage()
@@ -134,12 +111,15 @@ function init () {
   addExerciseListener(scheduledContainer)
 }
 
-// function: add to scheduled exercises in a order sorted by date
+/**
+ * Add exercise card to schedule
+ * @param {Object} exercise - Exercise card
+ */
 document.addToScheduled = function (exercise) {
   const scheduledContainer = document.getElementById('scheduledContainer')
   const scheduledList = scheduledContainer.getElementsByTagName('exercise-card')
 
-  // add elemenet to scheduled list based on date
+  // add element to scheduled list based on date
   if (scheduledList.length === 0) {
     scheduledContainer.appendChild(exercise)
   } else {
@@ -155,12 +135,15 @@ document.addToScheduled = function (exercise) {
   }
 }
 
-// function: add to completed exercises in a order sorted by date
+/**
+ * Add to completed exercises in a order sorted by date
+ * @param {Object} exercise - exercise card
+ */
 document.addToCompleted = function (exercise) {
   const completedContainer = document.getElementById('completedContainer')
   const completedList = completedContainer.getElementsByTagName('exercise-card')
 
-  // add elemenet to completed list based on date
+  // add element to completed list based on date
   if (completedList.length === 0) {
     completedContainer.appendChild(exercise)
   } else {
@@ -176,7 +159,9 @@ document.addToCompleted = function (exercise) {
   }
 }
 
-// function: saves current state of page & put it in local storage
+/**
+ * Saves current state of page & put it in local storage
+ */
 document.updateData = function () {
   const scheduledContainer = document.getElementById('scheduledContainer')
   const completedContainer = document.getElementById('completedContainer')
