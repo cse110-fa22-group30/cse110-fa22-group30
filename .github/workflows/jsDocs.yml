@@ -13,7 +13,7 @@ jobs:
       
       - name: Update jsDocs Branch
         run: |
-          git checkout --track origin/jsDocs
+          git checkout jsDocs
           git merge main
           git push
           git checkout main
