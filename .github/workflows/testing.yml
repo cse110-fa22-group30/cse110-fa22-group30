@@ -21,7 +21,9 @@ jobs:
           node-version: 18
 
       # Setup CI env for Node
-      - run: npm ci
+      - run: |
+          npm ci
+          mkdir test-results
 
       # Run tests
       - name: Unit test
