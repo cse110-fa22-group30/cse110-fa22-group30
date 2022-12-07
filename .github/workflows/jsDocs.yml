@@ -22,9 +22,6 @@ jobs:
         run: |
           git checkout jsDocs
           git merge main
-          cd .github
-          git ls-files | xargs git update-index --assume-unchanged
-          cd ..
           git push
           git checkout main
 
