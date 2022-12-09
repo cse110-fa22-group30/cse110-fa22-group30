@@ -1,3 +1,3 @@
 # tour
 does something
-Does something good.
+Does Something
