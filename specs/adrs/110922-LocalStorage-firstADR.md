@@ -1,31 +1,46 @@
 # Decision on local storage
+
 ​
+
 * Status: Accepted
 * Deciders: John and Xiaofan <!-- optional -->
 * Date: 2022-11-09 <!-- optional -->
 ​
+
 ## Context and Problem Statement
+
 ​
 What implementation of CRUD is optimal for our application
 ​
+
 ## Decision Drivers <!-- optional -->
+
 ​
+
 * Easy to implement so that people can quickly set up
 * Easy to debug
 * Ease of use
 ​
+
 ## Considered Options
+
 ​
+
 * Saving information to a local file
 * Local Storage
 ​
+
 ## Decision Outcome
+
 ​
 Chosen option: We're using local storage mainly because of it is simpler and easier to use. 
 
 ## Pros and Cons of the Options <!-- optional -->
+
 ### Local File
+
 ​
+
 * Good, easy concept
 * Good, write to file allows the data to be stored locally
 * Good, data not limited to a single browser (as opposed to local storage)
@@ -34,8 +49,11 @@ Chosen option: We're using local storage mainly because of it is simpler and eas
 * Bad, this method of data storage is more susceptible to be edited by a user and break our software.
 * Bad, potential jank of read/write system. (Could be mitigated by converting everything into a simple JSON file)
 ​
+
 ### Local Storage
+
 ​
+
 * Good, extremely simple
 * Good, less moving parts (so less likely to break)
 * Good, already built into JS

@@ -1,31 +1,46 @@
 # Decision on using site instead of web app
+
 ​
+
 * Status: Accepted
 * Deciders: John and Xiaofan <!-- optional -->
 * Date: 2022-10-20 <!-- optional -->
 ​
+
 ## Context and Problem Statement
+
 ​
 Whether to use site or web app to present our work.
 ​
+
 ## Decision Drivers <!-- optional -->
+
 ​
+
 * Easy to implement
 * User's Experience
 * Resistant to the test of time
 ​
+
 ## Considered Options
+
 ​
+
 * site
 * Web app
 ​
+
 ## Decision Outcome
+
 ​
 Chosen option: site
 
 ## Pros and Cons of the Options <!-- optional -->
+
 ### Web app
+
 ​
+
 * Good, more streamlined for phone users
 * Good, web app, not like a mobile app, can easily adapted to whatever devices the user is using
 * Good, easy to maintain
@@ -33,8 +48,11 @@ Chosen option: site
 * Bad, maybe slower
 * Bad, require authentication
 ​
+
 ### site
+
 ​
+
 * Good, It is faster to finish the project with site format
 * Good, This is what CSE110 labs have been teaching and the data is easier to import.
 * Good, Most computers stick to a standard aspect ratio. (16:9)
